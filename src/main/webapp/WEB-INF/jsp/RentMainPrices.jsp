@@ -66,7 +66,7 @@
             <c:set var="sum" value="0"></c:set>
             <c:set var="flag" value="1"></c:set>
             <c:forEach items="${cars}" var="car">
-                <c:if test="${car.cstate==0&&car.cprice<15&&car.cprice>0}">
+                <c:if test="${car.cstate==0&&car.cprice<10&&car.cprice>0}">
                     <c:if test="${flag==1}">
                         <div class="col-md-12">
                             <div class="begin-car">

@@ -20,7 +20,9 @@
 
 <div class="con">
     <div class="rentHead">
-        <span class="car-m">123</span>
+        <span class="headType">
+            品牌：
+        </span>
     </div>
 
 <!--<div class="container-fluid">-->

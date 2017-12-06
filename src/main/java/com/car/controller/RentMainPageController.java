@@ -5,14 +5,25 @@ import com.car.service.CarService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 public class RentMainPageController {
     @Resource
     private CarService carService;
+
+    @RequestMapping("/rentMainPrices")
+    public ModelAndView rentMainPrices(ModelAndView modelAndView)
+    {
+        List<Car> list=carService.getAllCar();
+        modelAndView.addObject("cars",list);
+        modelAndView.setViewName("RentMainPrices");
+        return modelAndView;
+    }
 
     @RequestMapping(path="/oneCar/{cno}")
     public String singleCar(@PathVariable Integer cno, HttpServletRequest request)
