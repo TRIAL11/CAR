@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.car.dao.CarMapper" >
+  <resultMap id="BaseResultMap" type="com.car.dao.example.Car" >
+    <id column="Cno" property="cno" jdbcType="INTEGER" />
+    <result column="Sno" property="sno" jdbcType="INTEGER" />
+    <result column="Tno" property="tno" jdbcType="INTEGER" />
+    <result column="Cname" property="cname" jdbcType="VARCHAR" />
+    <result column="Clong" property="clong" jdbcType="VARCHAR" />
+    <result column="Cpicture" property="cpicture" jdbcType="VARCHAR" />
+    <result column="Cstate" property="cstate" jdbcType="INTEGER" />
+    <result column="Cprice" property="cprice" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    Cno, Sno, Tno, Cname, Clong, Cpicture, Cstate, Cprice
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.car.dao.example.CarExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from car
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from car
+    where Cno = #{cno,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from car
+    where Cno = #{cno,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.car.dao.example.CarExample" >
+    delete from car
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.car.dao.example.Car" >
+    insert into car (Cno, Sno, Tno, 
+      Cname, Clong, Cpicture, 
+      Cstate, Cprice)
+    values (#{cno,jdbcType=INTEGER}, #{sno,jdbcType=INTEGER}, #{tno,jdbcType=INTEGER}, 
+      #{cname,jdbcType=VARCHAR}, #{clong,jdbcType=VARCHAR}, #{cpicture,jdbcType=VARCHAR}, 
+      #{cstate,jdbcType=INTEGER}, #{cprice,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.car.dao.example.Car" >
+    insert into car
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cno != null" >
+        Cno,
+      </if>
+      <if test="sno != null" >
+        Sno,
+      </if>
+      <if test="tno != null" >
+        Tno,
+      </if>
+      <if test="cname != null" >
+        Cname,
+      </if>
+      <if test="clong != null" >
+        Clong,
+      </if>
+      <if test="cpicture != null" >
+        Cpicture,
+      </if>
+      <if test="cstate != null" >
+        Cstate,
+      </if>
+      <if test="cprice != null" >
+        Cprice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cno != null" >
+        #{cno,jdbcType=INTEGER},
+      </if>
+      <if test="sno != null" >
+        #{sno,jdbcType=INTEGER},
+      </if>
+      <if test="tno != null" >
+        #{tno,jdbcType=INTEGER},
+      </if>
+      <if test="cname != null" >
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="clong != null" >
+        #{clong,jdbcType=VARCHAR},
+      </if>
+      <if test="cpicture != null" >
+        #{cpicture,jdbcType=VARCHAR},
+      </if>
+      <if test="cstate != null" >
+        #{cstate,jdbcType=INTEGER},
+      </if>
+      <if test="cprice != null" >
+        #{cprice,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.car.dao.example.CarExample" resultType="java.lang.Integer" >
+    select count(*) from car
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update car
+    <set >
+      <if test="record.cno != null" >
+        Cno = #{record.cno,jdbcType=INTEGER},
+      </if>
+      <if test="record.sno != null" >
+        Sno = #{record.sno,jdbcType=INTEGER},
+      </if>
+      <if test="record.tno != null" >
+        Tno = #{record.tno,jdbcType=INTEGER},
+      </if>
+      <if test="record.cname != null" >
+        Cname = #{record.cname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clong != null" >
+        Clong = #{record.clong,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cpicture != null" >
+        Cpicture = #{record.cpicture,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cstate != null" >
+        Cstate = #{record.cstate,jdbcType=INTEGER},
+      </if>
+      <if test="record.cprice != null" >
+        Cprice = #{record.cprice,jdbcType=REAL},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update car
+    set Cno = #{record.cno,jdbcType=INTEGER},
+      Sno = #{record.sno,jdbcType=INTEGER},
+      Tno = #{record.tno,jdbcType=INTEGER},
+      Cname = #{record.cname,jdbcType=VARCHAR},
+      Clong = #{record.clong,jdbcType=VARCHAR},
+      Cpicture = #{record.cpicture,jdbcType=VARCHAR},
+      Cstate = #{record.cstate,jdbcType=INTEGER},
+      Cprice = #{record.cprice,jdbcType=REAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.car.dao.example.Car" >
+    update car
+    <set >
+      <if test="sno != null" >
+        Sno = #{sno,jdbcType=INTEGER},
+      </if>
+      <if test="tno != null" >
+        Tno = #{tno,jdbcType=INTEGER},
+      </if>
+      <if test="cname != null" >
+        Cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="clong != null" >
+        Clong = #{clong,jdbcType=VARCHAR},
+      </if>
+      <if test="cpicture != null" >
+        Cpicture = #{cpicture,jdbcType=VARCHAR},
+      </if>
+      <if test="cstate != null" >
+        Cstate = #{cstate,jdbcType=INTEGER},
+      </if>
+      <if test="cprice != null" >
+        Cprice = #{cprice,jdbcType=REAL},
+      </if>
+    </set>
+    where Cno = #{cno,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.car.dao.example.Car" >
+    update car
+    set Sno = #{sno,jdbcType=INTEGER},
+      Tno = #{tno,jdbcType=INTEGER},
+      Cname = #{cname,jdbcType=VARCHAR},
+      Clong = #{clong,jdbcType=VARCHAR},
+      Cpicture = #{cpicture,jdbcType=VARCHAR},
+      Cstate = #{cstate,jdbcType=INTEGER},
+      Cprice = #{cprice,jdbcType=REAL}
+    where Cno = #{cno,jdbcType=INTEGER}
+  </update>
+</mapper>

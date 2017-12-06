@@ -1,0 +1,78 @@
+
+.rentHead {
+    margin-bottom: 30px;
+}
+
+.car-show {
+
+    margin-bottom: 50px;
+}
+
+.begin-car {
+    margin:30px;
+}
+
+.begin-car:hover {
+    background-color: gray;
+}
+
+.con {
+    padding-left: 40px;
+}
+
+.thingMess {
+    font-family: "Microsoft YaHei";
+    font-size: 180%;
+}
+
+
+.car-link:hover {
+    text-decoration: none;
+    border-color: white;
+}
+
+.car-long {
+    margin-top: 58px;
+    font-size: 140%;
+    color: black;
+}
+.car-name {
+    margin-top: 60px;
+    font-size: 120%;
+    color: black;
+}
+.car-price {
+    margin-top: 52px;
+    font-size: 200%;
+    color:green;
+}
+
+.detailButton {
+    margin-top: 44px;
+}
+
+.col-md-12:hover {
+    background-color: white;
+}
+
+.car-picture:hover {
+    opacity: 0.9;
+}
+
+.titleLong {
+    color: #000;
+    font-size: 150%;
+    font-family: "Microsoft YaHei";
+}
+
+.titleName {
+    color: #000;
+    font-family: "Microsoft YaHei";
+    font-size: 150%;
+}
+
+.titlePrice {
+    color: black;
+    font-size: 150%;
+    font-family: "Microsoft YaHei";
+}

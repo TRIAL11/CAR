@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.car.dao.RentMapper" >
+  <resultMap id="BaseResultMap" type="com.car.dao.example.Rent" >
+    <id column="Rno" property="rno" jdbcType="INTEGER" />
+    <result column="Cno" property="cno" jdbcType="INTEGER" />
+    <result column="Ucode" property="ucode" jdbcType="INTEGER" />
+    <result column="Rlend" property="rlend" jdbcType="DATE" />
+    <result column="Rreturn" property="rreturn" jdbcType="DATE" />
+    <result column="Rprice" property="rprice" jdbcType="REAL" />
+    <result column="Rstate" property="rstate" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    Rno, Cno, Ucode, Rlend, Rreturn, Rprice, Rstate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.car.dao.example.RentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from rent
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from rent
+    where Rno = #{rno,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from rent
+    where Rno = #{rno,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.car.dao.example.RentExample" >
+    delete from rent
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.car.dao.example.Rent" >
+    insert into rent (Rno, Cno, Ucode, 
+      Rlend, Rreturn, Rprice, Rstate
+      )
+    values (#{rno,jdbcType=INTEGER}, #{cno,jdbcType=INTEGER}, #{ucode,jdbcType=INTEGER}, 
+      #{rlend,jdbcType=DATE}, #{rreturn,jdbcType=DATE}, #{rprice,jdbcType=REAL}, #{rstate,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.car.dao.example.Rent" >
+    insert into rent
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rno != null" >
+        Rno,
+      </if>
+      <if test="cno != null" >
+        Cno,
+      </if>
+      <if test="ucode != null" >
+        Ucode,
+      </if>
+      <if test="rlend != null" >
+        Rlend,
+      </if>
+      <if test="rreturn != null" >
+        Rreturn,
+      </if>
+      <if test="rprice != null" >
+        Rprice,
+      </if>
+      <if test="rstate != null" >
+        Rstate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rno != null" >
+        #{rno,jdbcType=INTEGER},
+      </if>
+      <if test="cno != null" >
+        #{cno,jdbcType=INTEGER},
+      </if>
+      <if test="ucode != null" >
+        #{ucode,jdbcType=INTEGER},
+      </if>
+      <if test="rlend != null" >
+        #{rlend,jdbcType=DATE},
+      </if>
+      <if test="rreturn != null" >
+        #{rreturn,jdbcType=DATE},
+      </if>
+      <if test="rprice != null" >
+        #{rprice,jdbcType=REAL},
+      </if>
+      <if test="rstate != null" >
+        #{rstate,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.car.dao.example.RentExample" resultType="java.lang.Integer" >
+    select count(*) from rent
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update rent
+    <set >
+      <if test="record.rno != null" >
+        Rno = #{record.rno,jdbcType=INTEGER},
+      </if>
+      <if test="record.cno != null" >
+        Cno = #{record.cno,jdbcType=INTEGER},
+      </if>
+      <if test="record.ucode != null" >
+        Ucode = #{record.ucode,jdbcType=INTEGER},
+      </if>
+      <if test="record.rlend != null" >
+        Rlend = #{record.rlend,jdbcType=DATE},
+      </if>
+      <if test="record.rreturn != null" >
+        Rreturn = #{record.rreturn,jdbcType=DATE},
+      </if>
+      <if test="record.rprice != null" >
+        Rprice = #{record.rprice,jdbcType=REAL},
+      </if>
+      <if test="record.rstate != null" >
+        Rstate = #{record.rstate,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update rent
+    set Rno = #{record.rno,jdbcType=INTEGER},
+      Cno = #{record.cno,jdbcType=INTEGER},
+      Ucode = #{record.ucode,jdbcType=INTEGER},
+      Rlend = #{record.rlend,jdbcType=DATE},
+      Rreturn = #{record.rreturn,jdbcType=DATE},
+      Rprice = #{record.rprice,jdbcType=REAL},
+      Rstate = #{record.rstate,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.car.dao.example.Rent" >
+    update rent
+    <set >
+      <if test="cno != null" >
+        Cno = #{cno,jdbcType=INTEGER},
+      </if>
+      <if test="ucode != null" >
+        Ucode = #{ucode,jdbcType=INTEGER},
+      </if>
+      <if test="rlend != null" >
+        Rlend = #{rlend,jdbcType=DATE},
+      </if>
+      <if test="rreturn != null" >
+        Rreturn = #{rreturn,jdbcType=DATE},
+      </if>
+      <if test="rprice != null" >
+        Rprice = #{rprice,jdbcType=REAL},
+      </if>
+      <if test="rstate != null" >
+        Rstate = #{rstate,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Rno = #{rno,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.car.dao.example.Rent" >
+    update rent
+    set Cno = #{cno,jdbcType=INTEGER},
+      Ucode = #{ucode,jdbcType=INTEGER},
+      Rlend = #{rlend,jdbcType=DATE},
+      Rreturn = #{rreturn,jdbcType=DATE},
+      Rprice = #{rprice,jdbcType=REAL},
+      Rstate = #{rstate,jdbcType=INTEGER}
+    where Rno = #{rno,jdbcType=INTEGER}
+  </update>
+</mapper>
