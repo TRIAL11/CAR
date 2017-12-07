@@ -57,29 +57,6 @@
                 </div>
             </div>
 
-            <div class="panel panel-primary leftMenu">
-                <div class="panel-heading" id="collapseListGroupHeading3" data-toggle="collapse" data-target="#collapseListGroup3" role="tab" >
-                    <h4 class="panel-title">
-                        租车服务
-                        <span class="glyphicon glyphicon-chevron-down right"></span>
-                    </h4>
-                </div>
-                <div id="collapseListGroup3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <button class="menu-item-left">
-                                <span class="glyphicon glyphicon-triangle-right"></span>我的订单
-                            </button>
-                        </li>
-                        <li class="list-group-item">
-                            <button class="menu-item-left">
-                                <span class="glyphicon glyphicon-triangle-right"></span>功能待填
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
     </div>
 <script>

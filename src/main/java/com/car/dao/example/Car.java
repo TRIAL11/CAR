@@ -17,6 +17,12 @@ public class Car {
 
     private Float cprice;
 
+    private Integer clook;
+
+    private Integer cgood;
+
+    private Integer cbad;
+
     public Integer getCno() {
         return cno;
     }
@@ -79,5 +85,29 @@ public class Car {
 
     public void setCprice(Float cprice) {
         this.cprice = cprice;
+    }
+
+    public Integer getClook() {
+        return clook;
+    }
+
+    public void setClook(Integer clook) {
+        this.clook = clook;
+    }
+
+    public Integer getCgood() {
+        return cgood;
+    }
+
+    public void setCgood(Integer cgood) {
+        this.cgood = cgood;
+    }
+
+    public Integer getCbad() {
+        return cbad;
+    }
+
+    public void setCbad(Integer cbad) {
+        this.cbad = cbad;
     }
 }

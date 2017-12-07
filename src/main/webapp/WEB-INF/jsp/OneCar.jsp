@@ -24,8 +24,33 @@
             <img src="${requestScope.car.cpicture}" width="500px" height="500px" />
         </div>
     </div>
+    <div class="RentButton">
+        <button type="button" class="btn btn-lg"><a href="#" data-toggle="modal" data-target="#modalRent">立即租借</a></button>
+    </div>
 </div>
 
 <!--模态框-->
+<div id="modalRent" class="modal fade" role="dialog" aria-labelledby="modalLableRent" aria-hidden="true">
+    <div class="modal-dialog modal-rent">
+        <div class="modal-content">
+            <div class="modal-head">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modalLabelRent">租借确认单</h4>
+            </div>
+            <form action="" method="post">
+                <div class="modal-body rent-body">
+                    <span class="jia">jia</span>
+                    ${sessionScope.user.uname}
+
+                </div>
+
+                <div class="modal-foot">
+                    <button type="button" class="btn btn-info" id="rentButton">确认租借</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

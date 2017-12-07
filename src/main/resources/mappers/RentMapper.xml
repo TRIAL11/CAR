@@ -5,8 +5,8 @@
     <id column="Rno" property="rno" jdbcType="INTEGER" />
     <result column="Cno" property="cno" jdbcType="INTEGER" />
     <result column="Ucode" property="ucode" jdbcType="INTEGER" />
-    <result column="Rlend" property="rlend" jdbcType="DATE" />
-    <result column="Rreturn" property="rreturn" jdbcType="DATE" />
+    <result column="Rlend" property="rlend" jdbcType="TIMESTAMP" />
+    <result column="Rreturn" property="rreturn" jdbcType="TIMESTAMP" />
     <result column="Rprice" property="rprice" jdbcType="REAL" />
     <result column="Rstate" property="rstate" jdbcType="INTEGER" />
   </resultMap>
@@ -103,11 +103,11 @@
   </delete>
   <insert id="insert" parameterType="com.car.dao.example.Rent" >
     insert into rent (Rno, Cno, Ucode, 
-      Rlend, Rreturn, Rprice, Rstate
-      )
+      Rlend, Rreturn, Rprice, 
+      Rstate)
     values (#{rno,jdbcType=INTEGER}, #{cno,jdbcType=INTEGER}, #{ucode,jdbcType=INTEGER}, 
-      #{rlend,jdbcType=DATE}, #{rreturn,jdbcType=DATE}, #{rprice,jdbcType=REAL}, #{rstate,jdbcType=INTEGER}
-      )
+      #{rlend,jdbcType=TIMESTAMP}, #{rreturn,jdbcType=TIMESTAMP}, #{rprice,jdbcType=REAL}, 
+      #{rstate,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.car.dao.example.Rent" >
     insert into rent
@@ -145,10 +145,10 @@
         #{ucode,jdbcType=INTEGER},
       </if>
       <if test="rlend != null" >
-        #{rlend,jdbcType=DATE},
+        #{rlend,jdbcType=TIMESTAMP},
       </if>
       <if test="rreturn != null" >
-        #{rreturn,jdbcType=DATE},
+        #{rreturn,jdbcType=TIMESTAMP},
       </if>
       <if test="rprice != null" >
         #{rprice,jdbcType=REAL},
@@ -177,10 +177,10 @@
         Ucode = #{record.ucode,jdbcType=INTEGER},
       </if>
       <if test="record.rlend != null" >
-        Rlend = #{record.rlend,jdbcType=DATE},
+        Rlend = #{record.rlend,jdbcType=TIMESTAMP},
       </if>
       <if test="record.rreturn != null" >
-        Rreturn = #{record.rreturn,jdbcType=DATE},
+        Rreturn = #{record.rreturn,jdbcType=TIMESTAMP},
       </if>
       <if test="record.rprice != null" >
         Rprice = #{record.rprice,jdbcType=REAL},
@@ -198,8 +198,8 @@
     set Rno = #{record.rno,jdbcType=INTEGER},
       Cno = #{record.cno,jdbcType=INTEGER},
       Ucode = #{record.ucode,jdbcType=INTEGER},
-      Rlend = #{record.rlend,jdbcType=DATE},
-      Rreturn = #{record.rreturn,jdbcType=DATE},
+      Rlend = #{record.rlend,jdbcType=TIMESTAMP},
+      Rreturn = #{record.rreturn,jdbcType=TIMESTAMP},
       Rprice = #{record.rprice,jdbcType=REAL},
       Rstate = #{record.rstate,jdbcType=INTEGER}
     <if test="_parameter != null" >
@@ -216,10 +216,10 @@
         Ucode = #{ucode,jdbcType=INTEGER},
       </if>
       <if test="rlend != null" >
-        Rlend = #{rlend,jdbcType=DATE},
+        Rlend = #{rlend,jdbcType=TIMESTAMP},
       </if>
       <if test="rreturn != null" >
-        Rreturn = #{rreturn,jdbcType=DATE},
+        Rreturn = #{rreturn,jdbcType=TIMESTAMP},
       </if>
       <if test="rprice != null" >
         Rprice = #{rprice,jdbcType=REAL},
@@ -234,8 +234,8 @@
     update rent
     set Cno = #{cno,jdbcType=INTEGER},
       Ucode = #{ucode,jdbcType=INTEGER},
-      Rlend = #{rlend,jdbcType=DATE},
-      Rreturn = #{rreturn,jdbcType=DATE},
+      Rlend = #{rlend,jdbcType=TIMESTAMP},
+      Rreturn = #{rreturn,jdbcType=TIMESTAMP},
       Rprice = #{rprice,jdbcType=REAL},
       Rstate = #{rstate,jdbcType=INTEGER}
     where Rno = #{rno,jdbcType=INTEGER}

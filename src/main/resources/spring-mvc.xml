@@ -25,7 +25,7 @@
 
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"></bean>
 
-    <!--拦截器配置-->
+    <!--拦截器配置,待填-->
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/userInfo"/>

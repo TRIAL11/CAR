@@ -10,6 +10,9 @@
     <result column="Cpicture" property="cpicture" jdbcType="VARCHAR" />
     <result column="Cstate" property="cstate" jdbcType="INTEGER" />
     <result column="Cprice" property="cprice" jdbcType="REAL" />
+    <result column="Clook" property="clook" jdbcType="INTEGER" />
+    <result column="Cgood" property="cgood" jdbcType="INTEGER" />
+    <result column="Cbad" property="cbad" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -70,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    Cno, Sno, Tno, Cname, Clong, Cpicture, Cstate, Cprice
+    Cno, Sno, Tno, Cname, Clong, Cpicture, Cstate, Cprice, Clook, Cgood, Cbad
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.car.dao.example.CarExample" >
     select
@@ -105,10 +108,12 @@
   <insert id="insert" parameterType="com.car.dao.example.Car" >
     insert into car (Cno, Sno, Tno, 
       Cname, Clong, Cpicture, 
-      Cstate, Cprice)
+      Cstate, Cprice, Clook, 
+      Cgood, Cbad)
     values (#{cno,jdbcType=INTEGER}, #{sno,jdbcType=INTEGER}, #{tno,jdbcType=INTEGER}, 
       #{cname,jdbcType=VARCHAR}, #{clong,jdbcType=VARCHAR}, #{cpicture,jdbcType=VARCHAR}, 
-      #{cstate,jdbcType=INTEGER}, #{cprice,jdbcType=REAL})
+      #{cstate,jdbcType=INTEGER}, #{cprice,jdbcType=REAL}, #{clook,jdbcType=INTEGER}, 
+      #{cgood,jdbcType=INTEGER}, #{cbad,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.car.dao.example.Car" >
     insert into car
@@ -137,6 +142,15 @@
       <if test="cprice != null" >
         Cprice,
       </if>
+      <if test="clook != null" >
+        Clook,
+      </if>
+      <if test="cgood != null" >
+        Cgood,
+      </if>
+      <if test="cbad != null" >
+        Cbad,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="cno != null" >
@@ -162,6 +176,15 @@
       </if>
       <if test="cprice != null" >
         #{cprice,jdbcType=REAL},
+      </if>
+      <if test="clook != null" >
+        #{clook,jdbcType=INTEGER},
+      </if>
+      <if test="cgood != null" >
+        #{cgood,jdbcType=INTEGER},
+      </if>
+      <if test="cbad != null" >
+        #{cbad,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -198,6 +221,15 @@
       <if test="record.cprice != null" >
         Cprice = #{record.cprice,jdbcType=REAL},
       </if>
+      <if test="record.clook != null" >
+        Clook = #{record.clook,jdbcType=INTEGER},
+      </if>
+      <if test="record.cgood != null" >
+        Cgood = #{record.cgood,jdbcType=INTEGER},
+      </if>
+      <if test="record.cbad != null" >
+        Cbad = #{record.cbad,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -212,7 +244,10 @@
       Clong = #{record.clong,jdbcType=VARCHAR},
       Cpicture = #{record.cpicture,jdbcType=VARCHAR},
       Cstate = #{record.cstate,jdbcType=INTEGER},
-      Cprice = #{record.cprice,jdbcType=REAL}
+      Cprice = #{record.cprice,jdbcType=REAL},
+      Clook = #{record.clook,jdbcType=INTEGER},
+      Cgood = #{record.cgood,jdbcType=INTEGER},
+      Cbad = #{record.cbad,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -241,6 +276,15 @@
       <if test="cprice != null" >
         Cprice = #{cprice,jdbcType=REAL},
       </if>
+      <if test="clook != null" >
+        Clook = #{clook,jdbcType=INTEGER},
+      </if>
+      <if test="cgood != null" >
+        Cgood = #{cgood,jdbcType=INTEGER},
+      </if>
+      <if test="cbad != null" >
+        Cbad = #{cbad,jdbcType=INTEGER},
+      </if>
     </set>
     where Cno = #{cno,jdbcType=INTEGER}
   </update>
@@ -252,7 +296,10 @@
       Clong = #{clong,jdbcType=VARCHAR},
       Cpicture = #{cpicture,jdbcType=VARCHAR},
       Cstate = #{cstate,jdbcType=INTEGER},
-      Cprice = #{cprice,jdbcType=REAL}
+      Cprice = #{cprice,jdbcType=REAL},
+      Clook = #{clook,jdbcType=INTEGER},
+      Cgood = #{cgood,jdbcType=INTEGER},
+      Cbad = #{cbad,jdbcType=INTEGER}
     where Cno = #{cno,jdbcType=INTEGER}
   </update>
 </mapper>

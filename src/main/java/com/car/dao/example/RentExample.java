@@ -2,7 +2,6 @@ package com.car.dao.example;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class RentExample {
@@ -104,32 +103,6 @@ public class RentExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value.getTime()), property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                dateList.add(new java.sql.Date(iter.next().getTime()));
-            }
-            addCriterion(condition, dateList, property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andRnoIsNull() {
@@ -323,52 +296,52 @@ public class RentExample {
         }
 
         public Criteria andRlendEqualTo(Date value) {
-            addCriterionForJDBCDate("Rlend =", value, "rlend");
+            addCriterion("Rlend =", value, "rlend");
             return (Criteria) this;
         }
 
         public Criteria andRlendNotEqualTo(Date value) {
-            addCriterionForJDBCDate("Rlend <>", value, "rlend");
+            addCriterion("Rlend <>", value, "rlend");
             return (Criteria) this;
         }
 
         public Criteria andRlendGreaterThan(Date value) {
-            addCriterionForJDBCDate("Rlend >", value, "rlend");
+            addCriterion("Rlend >", value, "rlend");
             return (Criteria) this;
         }
 
         public Criteria andRlendGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("Rlend >=", value, "rlend");
+            addCriterion("Rlend >=", value, "rlend");
             return (Criteria) this;
         }
 
         public Criteria andRlendLessThan(Date value) {
-            addCriterionForJDBCDate("Rlend <", value, "rlend");
+            addCriterion("Rlend <", value, "rlend");
             return (Criteria) this;
         }
 
         public Criteria andRlendLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("Rlend <=", value, "rlend");
+            addCriterion("Rlend <=", value, "rlend");
             return (Criteria) this;
         }
 
         public Criteria andRlendIn(List<Date> values) {
-            addCriterionForJDBCDate("Rlend in", values, "rlend");
+            addCriterion("Rlend in", values, "rlend");
             return (Criteria) this;
         }
 
         public Criteria andRlendNotIn(List<Date> values) {
-            addCriterionForJDBCDate("Rlend not in", values, "rlend");
+            addCriterion("Rlend not in", values, "rlend");
             return (Criteria) this;
         }
 
         public Criteria andRlendBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("Rlend between", value1, value2, "rlend");
+            addCriterion("Rlend between", value1, value2, "rlend");
             return (Criteria) this;
         }
 
         public Criteria andRlendNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("Rlend not between", value1, value2, "rlend");
+            addCriterion("Rlend not between", value1, value2, "rlend");
             return (Criteria) this;
         }
 
@@ -383,52 +356,52 @@ public class RentExample {
         }
 
         public Criteria andRreturnEqualTo(Date value) {
-            addCriterionForJDBCDate("Rreturn =", value, "rreturn");
+            addCriterion("Rreturn =", value, "rreturn");
             return (Criteria) this;
         }
 
         public Criteria andRreturnNotEqualTo(Date value) {
-            addCriterionForJDBCDate("Rreturn <>", value, "rreturn");
+            addCriterion("Rreturn <>", value, "rreturn");
             return (Criteria) this;
         }
 
         public Criteria andRreturnGreaterThan(Date value) {
-            addCriterionForJDBCDate("Rreturn >", value, "rreturn");
+            addCriterion("Rreturn >", value, "rreturn");
             return (Criteria) this;
         }
 
         public Criteria andRreturnGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("Rreturn >=", value, "rreturn");
+            addCriterion("Rreturn >=", value, "rreturn");
             return (Criteria) this;
         }
 
         public Criteria andRreturnLessThan(Date value) {
-            addCriterionForJDBCDate("Rreturn <", value, "rreturn");
+            addCriterion("Rreturn <", value, "rreturn");
             return (Criteria) this;
         }
 
         public Criteria andRreturnLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("Rreturn <=", value, "rreturn");
+            addCriterion("Rreturn <=", value, "rreturn");
             return (Criteria) this;
         }
 
         public Criteria andRreturnIn(List<Date> values) {
-            addCriterionForJDBCDate("Rreturn in", values, "rreturn");
+            addCriterion("Rreturn in", values, "rreturn");
             return (Criteria) this;
         }
 
         public Criteria andRreturnNotIn(List<Date> values) {
-            addCriterionForJDBCDate("Rreturn not in", values, "rreturn");
+            addCriterion("Rreturn not in", values, "rreturn");
             return (Criteria) this;
         }
 
         public Criteria andRreturnBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("Rreturn between", value1, value2, "rreturn");
+            addCriterion("Rreturn between", value1, value2, "rreturn");
             return (Criteria) this;
         }
 
         public Criteria andRreturnNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("Rreturn not between", value1, value2, "rreturn");
+            addCriterion("Rreturn not between", value1, value2, "rreturn");
             return (Criteria) this;
         }
 

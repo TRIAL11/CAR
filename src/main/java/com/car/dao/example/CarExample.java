@@ -613,6 +613,186 @@ public class CarExample {
             addCriterion("Cprice not between", value1, value2, "cprice");
             return (Criteria) this;
         }
+
+        public Criteria andClookIsNull() {
+            addCriterion("Clook is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClookIsNotNull() {
+            addCriterion("Clook is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClookEqualTo(Integer value) {
+            addCriterion("Clook =", value, "clook");
+            return (Criteria) this;
+        }
+
+        public Criteria andClookNotEqualTo(Integer value) {
+            addCriterion("Clook <>", value, "clook");
+            return (Criteria) this;
+        }
+
+        public Criteria andClookGreaterThan(Integer value) {
+            addCriterion("Clook >", value, "clook");
+            return (Criteria) this;
+        }
+
+        public Criteria andClookGreaterThanOrEqualTo(Integer value) {
+            addCriterion("Clook >=", value, "clook");
+            return (Criteria) this;
+        }
+
+        public Criteria andClookLessThan(Integer value) {
+            addCriterion("Clook <", value, "clook");
+            return (Criteria) this;
+        }
+
+        public Criteria andClookLessThanOrEqualTo(Integer value) {
+            addCriterion("Clook <=", value, "clook");
+            return (Criteria) this;
+        }
+
+        public Criteria andClookIn(List<Integer> values) {
+            addCriterion("Clook in", values, "clook");
+            return (Criteria) this;
+        }
+
+        public Criteria andClookNotIn(List<Integer> values) {
+            addCriterion("Clook not in", values, "clook");
+            return (Criteria) this;
+        }
+
+        public Criteria andClookBetween(Integer value1, Integer value2) {
+            addCriterion("Clook between", value1, value2, "clook");
+            return (Criteria) this;
+        }
+
+        public Criteria andClookNotBetween(Integer value1, Integer value2) {
+            addCriterion("Clook not between", value1, value2, "clook");
+            return (Criteria) this;
+        }
+
+        public Criteria andCgoodIsNull() {
+            addCriterion("Cgood is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCgoodIsNotNull() {
+            addCriterion("Cgood is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCgoodEqualTo(Integer value) {
+            addCriterion("Cgood =", value, "cgood");
+            return (Criteria) this;
+        }
+
+        public Criteria andCgoodNotEqualTo(Integer value) {
+            addCriterion("Cgood <>", value, "cgood");
+            return (Criteria) this;
+        }
+
+        public Criteria andCgoodGreaterThan(Integer value) {
+            addCriterion("Cgood >", value, "cgood");
+            return (Criteria) this;
+        }
+
+        public Criteria andCgoodGreaterThanOrEqualTo(Integer value) {
+            addCriterion("Cgood >=", value, "cgood");
+            return (Criteria) this;
+        }
+
+        public Criteria andCgoodLessThan(Integer value) {
+            addCriterion("Cgood <", value, "cgood");
+            return (Criteria) this;
+        }
+
+        public Criteria andCgoodLessThanOrEqualTo(Integer value) {
+            addCriterion("Cgood <=", value, "cgood");
+            return (Criteria) this;
+        }
+
+        public Criteria andCgoodIn(List<Integer> values) {
+            addCriterion("Cgood in", values, "cgood");
+            return (Criteria) this;
+        }
+
+        public Criteria andCgoodNotIn(List<Integer> values) {
+            addCriterion("Cgood not in", values, "cgood");
+            return (Criteria) this;
+        }
+
+        public Criteria andCgoodBetween(Integer value1, Integer value2) {
+            addCriterion("Cgood between", value1, value2, "cgood");
+            return (Criteria) this;
+        }
+
+        public Criteria andCgoodNotBetween(Integer value1, Integer value2) {
+            addCriterion("Cgood not between", value1, value2, "cgood");
+            return (Criteria) this;
+        }
+
+        public Criteria andCbadIsNull() {
+            addCriterion("Cbad is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCbadIsNotNull() {
+            addCriterion("Cbad is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCbadEqualTo(Integer value) {
+            addCriterion("Cbad =", value, "cbad");
+            return (Criteria) this;
+        }
+
+        public Criteria andCbadNotEqualTo(Integer value) {
+            addCriterion("Cbad <>", value, "cbad");
+            return (Criteria) this;
+        }
+
+        public Criteria andCbadGreaterThan(Integer value) {
+            addCriterion("Cbad >", value, "cbad");
+            return (Criteria) this;
+        }
+
+        public Criteria andCbadGreaterThanOrEqualTo(Integer value) {
+            addCriterion("Cbad >=", value, "cbad");
+            return (Criteria) this;
+        }
+
+        public Criteria andCbadLessThan(Integer value) {
+            addCriterion("Cbad <", value, "cbad");
+            return (Criteria) this;
+        }
+
+        public Criteria andCbadLessThanOrEqualTo(Integer value) {
+            addCriterion("Cbad <=", value, "cbad");
+            return (Criteria) this;
+        }
+
+        public Criteria andCbadIn(List<Integer> values) {
+            addCriterion("Cbad in", values, "cbad");
+            return (Criteria) this;
+        }
+
+        public Criteria andCbadNotIn(List<Integer> values) {
+            addCriterion("Cbad not in", values, "cbad");
+            return (Criteria) this;
+        }
+
+        public Criteria andCbadBetween(Integer value1, Integer value2) {
+            addCriterion("Cbad between", value1, value2, "cbad");
+            return (Criteria) this;
+        }
+
+        public Criteria andCbadNotBetween(Integer value1, Integer value2) {
+            addCriterion("Cbad not between", value1, value2, "cbad");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
