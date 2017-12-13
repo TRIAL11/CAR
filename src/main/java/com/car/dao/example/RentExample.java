@@ -524,6 +524,206 @@ public class RentExample {
             addCriterion("Rstate not between", value1, value2, "rstate");
             return (Criteria) this;
         }
+
+        public Criteria andCpictureIsNull() {
+            addCriterion("Cpicture is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpictureIsNotNull() {
+            addCriterion("Cpicture is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpictureEqualTo(String value) {
+            addCriterion("Cpicture =", value, "cpicture");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpictureNotEqualTo(String value) {
+            addCriterion("Cpicture <>", value, "cpicture");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpictureGreaterThan(String value) {
+            addCriterion("Cpicture >", value, "cpicture");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpictureGreaterThanOrEqualTo(String value) {
+            addCriterion("Cpicture >=", value, "cpicture");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpictureLessThan(String value) {
+            addCriterion("Cpicture <", value, "cpicture");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpictureLessThanOrEqualTo(String value) {
+            addCriterion("Cpicture <=", value, "cpicture");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpictureLike(String value) {
+            addCriterion("Cpicture like", value, "cpicture");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpictureNotLike(String value) {
+            addCriterion("Cpicture not like", value, "cpicture");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpictureIn(List<String> values) {
+            addCriterion("Cpicture in", values, "cpicture");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpictureNotIn(List<String> values) {
+            addCriterion("Cpicture not in", values, "cpicture");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpictureBetween(String value1, String value2) {
+            addCriterion("Cpicture between", value1, value2, "cpicture");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpictureNotBetween(String value1, String value2) {
+            addCriterion("Cpicture not between", value1, value2, "cpicture");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnameIsNull() {
+            addCriterion("Cname is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnameIsNotNull() {
+            addCriterion("Cname is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnameEqualTo(String value) {
+            addCriterion("Cname =", value, "cname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnameNotEqualTo(String value) {
+            addCriterion("Cname <>", value, "cname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnameGreaterThan(String value) {
+            addCriterion("Cname >", value, "cname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnameGreaterThanOrEqualTo(String value) {
+            addCriterion("Cname >=", value, "cname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnameLessThan(String value) {
+            addCriterion("Cname <", value, "cname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnameLessThanOrEqualTo(String value) {
+            addCriterion("Cname <=", value, "cname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnameLike(String value) {
+            addCriterion("Cname like", value, "cname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnameNotLike(String value) {
+            addCriterion("Cname not like", value, "cname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnameIn(List<String> values) {
+            addCriterion("Cname in", values, "cname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnameNotIn(List<String> values) {
+            addCriterion("Cname not in", values, "cname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnameBetween(String value1, String value2) {
+            addCriterion("Cname between", value1, value2, "cname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnameNotBetween(String value1, String value2) {
+            addCriterion("Cname not between", value1, value2, "cname");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpriceIsNull() {
+            addCriterion("Cprice is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpriceIsNotNull() {
+            addCriterion("Cprice is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpriceEqualTo(Float value) {
+            addCriterion("Cprice =", value, "cprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpriceNotEqualTo(Float value) {
+            addCriterion("Cprice <>", value, "cprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpriceGreaterThan(Float value) {
+            addCriterion("Cprice >", value, "cprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpriceGreaterThanOrEqualTo(Float value) {
+            addCriterion("Cprice >=", value, "cprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpriceLessThan(Float value) {
+            addCriterion("Cprice <", value, "cprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpriceLessThanOrEqualTo(Float value) {
+            addCriterion("Cprice <=", value, "cprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpriceIn(List<Float> values) {
+            addCriterion("Cprice in", values, "cprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpriceNotIn(List<Float> values) {
+            addCriterion("Cprice not in", values, "cprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpriceBetween(Float value1, Float value2) {
+            addCriterion("Cprice between", value1, value2, "cprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andCpriceNotBetween(Float value1, Float value2) {
+            addCriterion("Cprice not between", value1, value2, "cprice");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

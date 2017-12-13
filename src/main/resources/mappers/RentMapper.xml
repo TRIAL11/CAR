@@ -9,6 +9,9 @@
     <result column="Rreturn" property="rreturn" jdbcType="TIMESTAMP" />
     <result column="Rprice" property="rprice" jdbcType="REAL" />
     <result column="Rstate" property="rstate" jdbcType="INTEGER" />
+    <result column="Cpicture" property="cpicture" jdbcType="VARCHAR" />
+    <result column="Cname" property="cname" jdbcType="VARCHAR" />
+    <result column="Cprice" property="cprice" jdbcType="REAL" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    Rno, Cno, Ucode, Rlend, Rreturn, Rprice, Rstate
+    Rno, Cno, Ucode, Rlend, Rreturn, Rprice, Rstate, Cpicture, Cname, Cprice
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.car.dao.example.RentExample" >
     select
@@ -104,10 +107,12 @@
   <insert id="insert" parameterType="com.car.dao.example.Rent" >
     insert into rent (Rno, Cno, Ucode, 
       Rlend, Rreturn, Rprice, 
-      Rstate)
+      Rstate, Cpicture, Cname, 
+      Cprice)
     values (#{rno,jdbcType=INTEGER}, #{cno,jdbcType=INTEGER}, #{ucode,jdbcType=INTEGER}, 
       #{rlend,jdbcType=TIMESTAMP}, #{rreturn,jdbcType=TIMESTAMP}, #{rprice,jdbcType=REAL}, 
-      #{rstate,jdbcType=INTEGER})
+      #{rstate,jdbcType=INTEGER}, #{cpicture,jdbcType=VARCHAR}, #{cname,jdbcType=VARCHAR}, 
+      #{cprice,jdbcType=REAL})
   </insert>
   <insert id="insertSelective" parameterType="com.car.dao.example.Rent" >
     insert into rent
@@ -133,6 +138,15 @@
       <if test="rstate != null" >
         Rstate,
       </if>
+      <if test="cpicture != null" >
+        Cpicture,
+      </if>
+      <if test="cname != null" >
+        Cname,
+      </if>
+      <if test="cprice != null" >
+        Cprice,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="rno != null" >
@@ -155,6 +169,15 @@
       </if>
       <if test="rstate != null" >
         #{rstate,jdbcType=INTEGER},
+      </if>
+      <if test="cpicture != null" >
+        #{cpicture,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null" >
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="cprice != null" >
+        #{cprice,jdbcType=REAL},
       </if>
     </trim>
   </insert>
@@ -188,6 +211,15 @@
       <if test="record.rstate != null" >
         Rstate = #{record.rstate,jdbcType=INTEGER},
       </if>
+      <if test="record.cpicture != null" >
+        Cpicture = #{record.cpicture,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cname != null" >
+        Cname = #{record.cname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cprice != null" >
+        Cprice = #{record.cprice,jdbcType=REAL},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -201,7 +233,10 @@
       Rlend = #{record.rlend,jdbcType=TIMESTAMP},
       Rreturn = #{record.rreturn,jdbcType=TIMESTAMP},
       Rprice = #{record.rprice,jdbcType=REAL},
-      Rstate = #{record.rstate,jdbcType=INTEGER}
+      Rstate = #{record.rstate,jdbcType=INTEGER},
+      Cpicture = #{record.cpicture,jdbcType=VARCHAR},
+      Cname = #{record.cname,jdbcType=VARCHAR},
+      Cprice = #{record.cprice,jdbcType=REAL}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -227,6 +262,15 @@
       <if test="rstate != null" >
         Rstate = #{rstate,jdbcType=INTEGER},
       </if>
+      <if test="cpicture != null" >
+        Cpicture = #{cpicture,jdbcType=VARCHAR},
+      </if>
+      <if test="cname != null" >
+        Cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="cprice != null" >
+        Cprice = #{cprice,jdbcType=REAL},
+      </if>
     </set>
     where Rno = #{rno,jdbcType=INTEGER}
   </update>
@@ -237,7 +281,10 @@
       Rlend = #{rlend,jdbcType=TIMESTAMP},
       Rreturn = #{rreturn,jdbcType=TIMESTAMP},
       Rprice = #{rprice,jdbcType=REAL},
-      Rstate = #{rstate,jdbcType=INTEGER}
+      Rstate = #{rstate,jdbcType=INTEGER},
+      Cpicture = #{cpicture,jdbcType=VARCHAR},
+      Cname = #{cname,jdbcType=VARCHAR},
+      Cprice = #{cprice,jdbcType=REAL}
     where Rno = #{rno,jdbcType=INTEGER}
   </update>
 </mapper>

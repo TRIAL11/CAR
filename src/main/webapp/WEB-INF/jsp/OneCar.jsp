@@ -13,15 +13,20 @@
 <head>
     <title>车辆详细信息</title>
     <jsp:include page="userComm/HeadFile.jsp"></jsp:include>
+    <script src="${pageContext.request.contextPath}/static/js/oneCar.js"></script>
 
 </head>
 <body>
 <jsp:include page="userComm/header.jsp"></jsp:include>
 
+<!--JudgeMessage-->
+<input type="hidden" id="ucode" value="${sessionScope.user.ucode}">
+<input type="hidden" id="cno" value="${requestScope.car.cno}">
+
 <div class="container-fluid">
     <div class="car-message">
         <div class="car-picture">
-            <img src="${requestScope.car.cpicture}" width="500px" height="500px" />
+            <img src="${requestScope.car.cpicture}" width="600px" height="300px" />
         </div>
     </div>
     <div class="RentButton">
@@ -37,15 +42,13 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="modalLabelRent">租借确认单</h4>
             </div>
-            <form action="" method="post">
+            <form action="/car/addOrderList/${user.ucode} +${car.cno}" method="post">
                 <div class="modal-body rent-body">
-                    <span class="jia">jia</span>
+                    <span class="jia">j</span>
                     ${sessionScope.user.uname}
-
                 </div>
-
                 <div class="modal-foot">
-                    <button type="button" class="btn btn-info" id="rentButton">确认租借</button>
+                    <button type="submit" class="btn btn-info" id="rentButton">确认租借</button>
                 </div>
             </form>
         </div>
@@ -54,3 +57,5 @@
 
 </body>
 </html>
+
+

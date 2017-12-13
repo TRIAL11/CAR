@@ -19,23 +19,29 @@ public class OrderServiceImpl implements OrderService{
     @Resource
     private RentMapper rentMapper;
 
-    public Rent setRentReturn(User user,Car car,Date userReturn,Float userPrice)
+    public Rent setRentReturn(User user,Car car,Float userPrice)
     {
         Rent rent=new Rent();
+        Date date=new Date();
         rent.setUcode(user.getUcode());
         rent.setCno(car.getCno());
-        rent.setRreturn(userReturn);
+        rent.setRreturn(date);
         rent.setRprice(userPrice);
         rent.setRstate(1);
         return rent;
     }
 
-    public Rent setRent(User user, Car car, Date userLend)
+    public Rent setRent(User user, Car car)
     {
+        Date date=new Date();
+        date.getTime();
         Rent rent=new Rent();
         rent.setCno(car.getCno());
         rent.setUcode(user.getUcode());
-        rent.setRlend(userLend);
+        rent.setCname(car.getCname());
+        rent.setCprice(car.getCprice());
+        rent.setCpicture(car.getCpicture());
+        rent.setRlend(date);
         return rent;
     }
 

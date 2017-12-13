@@ -233,6 +233,66 @@ public class CartypeExample {
             addCriterion("Tname not between", value1, value2, "tname");
             return (Criteria) this;
         }
+
+        public Criteria andTtoalIsNull() {
+            addCriterion("Ttoal is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtoalIsNotNull() {
+            addCriterion("Ttoal is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtoalEqualTo(Integer value) {
+            addCriterion("Ttoal =", value, "ttoal");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtoalNotEqualTo(Integer value) {
+            addCriterion("Ttoal <>", value, "ttoal");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtoalGreaterThan(Integer value) {
+            addCriterion("Ttoal >", value, "ttoal");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtoalGreaterThanOrEqualTo(Integer value) {
+            addCriterion("Ttoal >=", value, "ttoal");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtoalLessThan(Integer value) {
+            addCriterion("Ttoal <", value, "ttoal");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtoalLessThanOrEqualTo(Integer value) {
+            addCriterion("Ttoal <=", value, "ttoal");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtoalIn(List<Integer> values) {
+            addCriterion("Ttoal in", values, "ttoal");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtoalNotIn(List<Integer> values) {
+            addCriterion("Ttoal not in", values, "ttoal");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtoalBetween(Integer value1, Integer value2) {
+            addCriterion("Ttoal between", value1, value2, "ttoal");
+            return (Criteria) this;
+        }
+
+        public Criteria andTtoalNotBetween(Integer value1, Integer value2) {
+            addCriterion("Ttoal not between", value1, value2, "ttoal");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -10,8 +10,8 @@ import java.util.List;
 
 @Service
 public interface OrderService {
-    Rent setRentReturn(User user,Car car,Date userReturn,Float userPrice);
-    Rent setRent(User user, Car car, Date userLend);
+    Rent setRentReturn(User user,Car car,Float userPrice);
+    Rent setRent(User user, Car car);
     void insertRent(Rent rent);
     void updateRent(Rent rent);
     Rent getRentByNo(Integer rno);

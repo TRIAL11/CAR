@@ -5,6 +5,8 @@ public class Cartype {
 
     private String tname;
 
+    private Integer ttoal;
+
     public Integer getTno() {
         return tno;
     }
@@ -19,5 +21,13 @@ public class Cartype {
 
     public void setTname(String tname) {
         this.tname = tname == null ? null : tname.trim();
+    }
+
+    public Integer getTtoal() {
+        return ttoal;
+    }
+
+    public void setTtoal(Integer ttoal) {
+        this.ttoal = ttoal;
     }
 }

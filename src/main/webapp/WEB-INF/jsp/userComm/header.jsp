@@ -17,7 +17,6 @@
                 <li><a href="/car/home">首页</a> </li>
                 <li><a href="#">平台简介</a></li>
                 <li><a href="/car/rentMainPage">我要租车</a></li>
-                <li><a href="#">我要还车</a></li>
                 <li><a href="#">联系我们</a></li>
                 <li><a><span class="glyphicon glyphicon-earphone"></span><span style="font-size: 20px">1888-8888</span></a></li>
             </ul>
@@ -41,7 +40,7 @@
                     </a>
                     <ul class="dropdown-menu" style="min-width: 120px;">
                         <li><a href="/car/userInfo">个人中心</a></li>
-                        <li><a href="/car/userOrderList">个人订单</a> </li>
+                        <li><a href="/car/userOrderList">订单查询</a> </li>
                         <li><a href="#" data-toggle="modal" data-target="#modalPass">修改密码</a></li>
                         <li class="divider"></li>
                         <li><a href="/car/logout.do">安全退出</a></li>

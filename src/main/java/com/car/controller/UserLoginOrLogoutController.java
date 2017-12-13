@@ -83,7 +83,6 @@ public class UserLoginOrLogoutController {
             else
             {
                 map.put("meg","right");
-
                 userService.insertUser(caruser);
             }
         }
