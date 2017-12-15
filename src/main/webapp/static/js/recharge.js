@@ -97,6 +97,7 @@ $(document).ready(function () {
                         {
                             $("#error-mes").html("<div class='alert alert-success recharge-message'>Success</div>");
                             window.location.href="/car/rechargeCenter";
+                            alert("success");
                         }
                     },
                     error:function (xhr) {

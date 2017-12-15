@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: zjf
@@ -10,14 +11,32 @@
 <head>
     <title>充值中心</title>
     <jsp:include page="userComm/HeadFile.jsp"></jsp:include>
+    <link href="${pageContext.request.contextPath}/static/css/userInfo.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
 <jsp:include page="userComm/header.jsp"></jsp:include>
-<div class="row">
-    <jsp:include page="userComm/leftMenu.jsp"></jsp:include>
 
-    <div class="col-md-10">
+<script>
+    $(document).ready(function () {
+        $(".nav-sidebar li").each(function () {
+            $(this).removeClass("active");
+        });
+        $(".recharge-center").parent().addClass("active");
+    });
+</script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li><a href="/car/userInfo" class="user-info">个人中心</a></li>
+                <li><a href="/car/rechargeCenter" class="recharge-center">充值中心</a></li>
+                <li><a href="/car/userOrderList" class="return-service">租还服务</a></li>
+            </ul>
+        </div>
+
+    <div class="col-md-10 col-md-offset-2 main">
         <div style="padding-left: 120px;margin: 30px">
             <div class="row user-info-form-fix">
                 <div class="form-group has-feedback" id="groupAcc">
@@ -66,7 +85,7 @@
         </div>
     </div>
 </div>
-
+</div>
 <!--模态框-->
 <jsp:include page="RechargePage.jsp"/>
 

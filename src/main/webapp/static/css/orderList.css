@@ -1,0 +1,36 @@
+.non-returnListTitle > td {
+    text-align: center;
+    color: black;
+    font-size:20px;
+}
+
+.non-returnListCatalogue {
+    border: 2px solid #F5F5F5;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.non-returnListCatalogue:hover {
+    border: 2px solid #A9A9A9;
+}
+
+.non-returnListName:hover {
+    text-decoration: none;
+}
+
+.non-returnListUnitPrice {
+    text-align: center;
+    color: black;
+}
+
+.non-returnListState {
+    text-align: center;
+    color: red;
+    font-family: "Microsoft YaHei";
+}
+
+.history-returnListTitle > td {
+    text-align: center;
+    color: black;
+    font-size: 20px;
+}

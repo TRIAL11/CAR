@@ -40,7 +40,7 @@
                     </a>
                     <ul class="dropdown-menu" style="min-width: 120px;">
                         <li><a href="/car/userInfo">个人中心</a></li>
-                        <li><a href="/car/userOrderList">订单查询</a> </li>
+                        <li><a href="/car/userOrderList">查询订单</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#modalPass">修改密码</a></li>
                         <li class="divider"></li>
                         <li><a href="/car/logout.do">安全退出</a></li>

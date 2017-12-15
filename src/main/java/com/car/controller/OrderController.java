@@ -65,4 +65,13 @@ public class OrderController {
         return "redirect:/rentSuccess";
     }
 
+    @RequestMapping(path="returnOrderList/{ucode}+{cno}")
+    public String returnOrderList(@PathVariable Integer ucode,@PathVariable Integer cno)
+    {
+        User user=userService.getCarUserByCode(ucode);
+        Car car=carService.getCarByNo(cno);
+        Rent rentList=orderService.setRentReturn(user,car);
+        return "redirect:/home";
+    }
+
 }

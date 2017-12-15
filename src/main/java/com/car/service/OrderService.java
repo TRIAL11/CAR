@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public interface OrderService {
-    Rent setRentReturn(User user,Car car,Float userPrice);
+    Rent setRentReturn(User user,Car car);
     Rent setRent(User user, Car car);
     void insertRent(Rent rent);
     void updateRent(Rent rent);
