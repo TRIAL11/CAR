@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.persistence.criteria.Order;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -47,7 +48,9 @@ public class OrderController {
     {
         User user=(User)session.getAttribute("user");
         ModelAndView modelAndView=new ModelAndView();
+        List<Rent> list1=orderService.getAllRentsByUcodeReturn(user.getUcode());
         List<Rent> list=orderService.getAllRentsByUcode(user.getUcode());
+        modelAndView.addObject("orderList1",list1);
         modelAndView.addObject("orderList",list);
         modelAndView.setViewName("UserOrderList");
         return modelAndView;
@@ -65,13 +68,25 @@ public class OrderController {
         return "redirect:/rentSuccess";
     }
 
-    @RequestMapping(path="returnOrderList/{ucode}+{cno}")
-    public String returnOrderList(@PathVariable Integer ucode,@PathVariable Integer cno)
+    @RequestMapping(path="returnOrderList/{rno}")
+    public String returnOrderList(@PathVariable Integer rno)
     {
-        User user=userService.getCarUserByCode(ucode);
-        Car car=carService.getCarByNo(cno);
-        Rent rentList=orderService.setRentReturn(user,car);
-        return "redirect:/home";
+        Rent orderList=orderService.getRentByNo(rno);
+        Car car=carService.getCarByNo(orderList.getCno());
+        Rent orderList1=orderService.setRentReturn(orderList);
+        orderService.updateRent(orderList1);
+        car.setCstate(0);
+        carService.updateCar(car);
+        return "redirect:/pay/"+ orderList1.getRno();
     }
 
+    @RequestMapping(path="/pay/{rno}")
+    public ModelAndView payMoney(@PathVariable Integer rno)
+    {
+        ModelAndView modelAndView=new ModelAndView();
+        Rent rent=orderService.getRentByNo(rno);
+        modelAndView.addObject("onePay",rent);
+        modelAndView.setViewName("PayMainPage");
+        return modelAndView;
+    }
 }

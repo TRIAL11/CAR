@@ -19,13 +19,10 @@ public class OrderServiceImpl implements OrderService{
     @Resource
     private RentMapper rentMapper;
 
-    public Rent setRentReturn(User user,Car car)
+    public Rent setRentReturn(Rent rent)
     {
-        Rent rent=new Rent();
         Date date=new Date();
         date.getTime();
-        rent.setUcode(user.getUcode());
-        rent.setCno(car.getCno());
         rent.setRreturn(date);
         rent.setRstate(1);
         return rent;
@@ -73,6 +70,15 @@ public class OrderServiceImpl implements OrderService{
         RentExample rentExample=new RentExample();
         RentExample.Criteria criteria=rentExample.createCriteria();
         rentExample.setOrderByClause("rlend desc");
+        criteria.andUcodeEqualTo(ucode);
+        return rentMapper.selectByExample(rentExample);
+    }
+
+    public List<Rent> getAllRentsByUcodeReturn(Integer ucode)
+    {
+        RentExample rentExample=new RentExample();
+        RentExample.Criteria criteria=rentExample.createCriteria();
+        rentExample.setOrderByClause("rreturn desc");
         criteria.andUcodeEqualTo(ucode);
         return rentMapper.selectByExample(rentExample);
     }

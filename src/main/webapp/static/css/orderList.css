@@ -25,7 +25,7 @@
 
 .non-returnListState {
     text-align: center;
-    color: red;
+    color: #FF0000;
     font-family: "Microsoft YaHei";
 }
 
@@ -33,4 +33,28 @@
     text-align: center;
     color: black;
     font-size: 20px;
+}
+
+.history-returnListState {
+    text-align: center;
+    color: green;
+    font-family: "Microsoft YaHei";
+}
+.history-returnListName:hover {
+    text-decoration: none;
+}
+
+.history-returnListUnitPrice {
+    text-align: center;
+    color: black;
+}
+
+.history-returnListCatalogue:hover {
+    border: 2px solid #A9A9A9;
+}
+
+.history-returnListCatalogue {
+    border: 2px solid #F5F5F5;
+    width: 100%;
+    margin: 20px 0;
 }

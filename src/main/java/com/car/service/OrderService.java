@@ -10,11 +10,12 @@ import java.util.List;
 
 @Service
 public interface OrderService {
-    Rent setRentReturn(User user,Car car);
+    Rent setRentReturn(Rent rent);
     Rent setRent(User user, Car car);
     void insertRent(Rent rent);
     void updateRent(Rent rent);
     Rent getRentByNo(Integer rno);
     List<Rent> getAllRents(Integer rno);
     List<Rent> getAllRentsByUcode(Integer ucode);
+    List<Rent> getAllRentsByUcodeReturn(Integer ucode);
 }

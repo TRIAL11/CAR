@@ -81,7 +81,7 @@
                                     <fmt:formatNumber type="number" value="${car.cprice}" pattern="0.0" maxFractionDigits="1"></fmt:formatNumber>
                                     </p></div>
                                 <div class="detailButton col-md-2 ">
-                                    <a href="/car/oneCar/${car.cno}" class="car-link"><button type="button" class="btn btn-lg">BUTTON</button></a>
+                                    <a href="/car/oneCar/${car.cno}" class="car-link"><button type="button" class="btn btn-lg">详细信息</button></a>
                                 </div>
                             </div>
                     </div>

@@ -10,11 +10,12 @@
 <head>
     <title>Title</title>
     <jsp:include page="userComm/HeadFile.jsp"></jsp:include>
+    <META http-equiv="Refresh" content="3;url=localhost:8080/car/userOrderList">
 </head>
 <jsp:include page="userComm/header.jsp"></jsp:include>
 <body>
 <h3><center>success</center></h3>
-
-<h4><center><a href="/car/userOrderList">返回订单界面</a></center></h4>
+<h4><center>3s后自动返回订单界面</center></h4>
+<h4><center><a href="/car/userOrderList">如果页面无响应请点击这里</a></center></h4>
 </body>
 </html>

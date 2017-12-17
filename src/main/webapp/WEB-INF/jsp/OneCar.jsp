@@ -35,7 +35,7 @@
 </div>
 
 <!--模态框-->
-<div id="modalRent" class="modal fade" role="dialog" aria-labelledby="modalLableRent" aria-hidden="true">
+<div id="modalRent" class="modal fade" role="dialog" aria-labelledby="modalLabelRent" aria-hidden="true">
     <div class="modal-dialog modal-rent">
         <div class="modal-content">
             <div class="modal-head">
@@ -44,8 +44,8 @@
             </div>
             <form action="/car/addOrderList/${user.ucode} +${car.cno}" method="post">
                 <div class="modal-body rent-body">
-                    <span class="jia">j</span>
-                    ${sessionScope.user.uname}
+                    <span class="jia">name</span>
+                    <b>${sessionScope.user.uname}</b>
                 </div>
                 <div class="modal-foot">
                     <button type="submit" class="btn btn-info" id="rentButton">确认租借</button>

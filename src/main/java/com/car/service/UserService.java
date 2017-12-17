@@ -19,6 +19,7 @@ public interface UserService {
     List getCarUserByTel(String Uphone);
     void updateUserEmail(String Uemail,Integer Ucode);
     void updateUserInfo(User caruser);
+    void updateUser(User caruser);
     boolean JudgeUserPass(User caruser,String Upassword);
     void updateUserPassword(Integer Ucode,String Upassword);
     void updateUserBalance(Integer Ucode,Float Ubalance);
