@@ -33,7 +33,7 @@
             <ul class="nav nav-sidebar">
                 <li><a href="/car/userInfo" class="user-info">个人中心</a></li>
                 <li><a href="/car/rechargeCenter" class="recharge-center">充值中心</a></li>
-                <li><a href="/car/userOrderList" class="return-service">归还服务</a></li>
+                <li><a href="/car/userOrderList" class="return-service">租还服务</a></li>
             </ul>
         </div>
 

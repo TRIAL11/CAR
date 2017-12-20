@@ -38,7 +38,7 @@
 <div id="modalRent" class="modal fade" role="dialog" aria-labelledby="modalLabelRent" aria-hidden="true">
     <div class="modal-dialog modal-rent">
         <div class="modal-content">
-            <div class="modal-head">
+            <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="modalLabelRent">租借确认单</h4>
             </div>
@@ -47,7 +47,7 @@
                     <span class="jia">name</span>
                     <b>${sessionScope.user.uname}</b>
                 </div>
-                <div class="modal-foot">
+                <div class="modal-footer">
                     <button type="submit" class="btn btn-info" id="rentButton">确认租借</button>
                 </div>
             </form>

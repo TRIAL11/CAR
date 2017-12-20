@@ -10,6 +10,7 @@ import com.sun.javafx.collections.MappingChange;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,6 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,10 +51,8 @@ public class OrderController {
     {
         User user=(User)session.getAttribute("user");
         ModelAndView modelAndView=new ModelAndView();
-        List<Rent> list1=orderService.getAllRentsByUcodeReturn(user.getUcode());
         List<Rent> list=orderService.getAllRentsByUcode(user.getUcode());
-        modelAndView.addObject("orderList1",list1);
-        modelAndView.addObject("orderList",list);
+        modelAndView.addObject("order",list);
         modelAndView.setViewName("UserOrderList");
         return modelAndView;
     }
@@ -68,25 +69,31 @@ public class OrderController {
         return "redirect:/rentSuccess";
     }
 
+    @RequestMapping("/calUserPrice.do")
+    public @ResponseBody Map<String,Object> calUerPrice(HttpServletRequest request,HttpServletResponse response) throws IOException
+    {
+        Map<String,Object> map=new HashMap<>();
+        Rent rent=new Rent();
+        rent.setRreturn(new Date());
+
+        return map;
+    }
+
     @RequestMapping(path="returnOrderList/{rno}")
     public String returnOrderList(@PathVariable Integer rno)
     {
         Rent orderList=orderService.getRentByNo(rno);
         Car car=carService.getCarByNo(orderList.getCno());
-        Rent orderList1=orderService.setRentReturn(orderList);
-        orderService.updateRent(orderList1);
+
         car.setCstate(0);
         carService.updateCar(car);
-        return "redirect:/pay/"+ orderList1.getRno();
+        return "redirect:/userOrderList";
     }
 
-    @RequestMapping(path="/pay/{rno}")
-    public ModelAndView payMoney(@PathVariable Integer rno)
+    @RequestMapping("/getMappingOrder.do")
+    public @ResponseBody Rent getMappingOrder(@RequestParam Integer rno)
     {
-        ModelAndView modelAndView=new ModelAndView();
         Rent rent=orderService.getRentByNo(rno);
-        modelAndView.addObject("onePay",rent);
-        modelAndView.setViewName("PayMainPage");
-        return modelAndView;
+        return rent;
     }
 }

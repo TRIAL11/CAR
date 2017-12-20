@@ -15,4 +15,3 @@
 <script src="${pageContext.request.contextPath}/static/js/UserInfo.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/changePassword.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/recharge.js"></script>
-<script src="${pageContext.request.contextPath}/static/css/userHead.css"></script>

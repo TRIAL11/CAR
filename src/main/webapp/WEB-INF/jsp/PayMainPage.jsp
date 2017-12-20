@@ -14,8 +14,7 @@
 </head>
 <body>
 <jsp:include page="userComm/header.jsp"></jsp:include>
-<h2>归还成功，请支付订单</h2>
-
-<button type="button" class="btn btn-primary" id="payButton">支付</button>
+<h2>支付成功，感谢您的光临</h2>
+<a href="/car/userOrderList">返回用户订单界面</a>
 </body>
 </html>

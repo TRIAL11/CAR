@@ -19,14 +19,14 @@ public class OrderServiceImpl implements OrderService{
     @Resource
     private RentMapper rentMapper;
 
-    public Rent setRentReturn(Rent rent)
+    /*public Rent setRentReturn(Rent rent)
     {
         Date date=new Date();
         date.getTime();
         rent.setRreturn(date);
         rent.setRstate(1);
         return rent;
-    }
+    }*/
 
     public Rent setRent(User user, Car car)
     {
@@ -39,6 +39,7 @@ public class OrderServiceImpl implements OrderService{
         rent.setCprice(car.getCprice());
         rent.setCpicture(car.getCpicture());
         rent.setRlend(date);
+        rent.setRstate(0);
         return rent;
     }
 
