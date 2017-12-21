@@ -131,8 +131,17 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="emptyPay()">&times;</button>
                 <h4 class="modal-title" id="modalLabelReturn">租借确认单</h4>
             </div>
-            <form action="/car/returnOrderList/rent.rno" method="post">
+            <form action="/car/returnCar" method="post">
                 <div class="modal-body return-body">
+                    <div class="user-pay form-group" id="orderId">
+                        <input type="hidden" class="form-control" name="orderListId" readonly="readonly">
+                    </div>
+                    <div class="user-pay form-group" id="userHid">
+                        <input type="hidden" class="form-control" name="userLendTimeHid" readonly="readonly">
+                    </div>
+                    <div class="user-pay form-group" id="userHidden">
+                        <input type="hidden" class="form-control" name="userReturnTimeHid" readonly="readonly">
+                    </div>
                     <div class="user-pay form-group" id="userLT">
                         <input type="text" class="form-control" name="userLendTime" readonly="readonly">
                     </div>
@@ -147,8 +156,10 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="calPriceButton()">结算</button>
-                    <button type="submit" class="btn btn-info" id="returnButton">支付</button>
+                    <div class="error-i">
+                    </div>
+                    <button type="button" class="btn btn-primary btn-lg" onclick="calPriceButton()">结算</button>
+                    <button type="submit" class="btn btn-info btn-lg" id="returnButton">支付</button>
                 </div>
             </form>
         </div>

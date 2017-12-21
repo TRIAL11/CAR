@@ -10,7 +10,7 @@
 <head>
     <title>Title</title>
     <jsp:include page="userComm/HeadFile.jsp"></jsp:include>
-    <META http-equiv="Refresh" content="3;url=localhost:8080/car/userOrderList">
+    <META http-equiv="Refresh" content="2;URL=localhost:8080/car/userOrderList">
 </head>
 <jsp:include page="userComm/header.jsp"></jsp:include>
 <body>

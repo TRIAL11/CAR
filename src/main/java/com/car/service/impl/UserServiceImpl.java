@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
         return caruser;
     }
 
-    public Map<String, Object> isreg(String Uaccount, String Upassword) {
+    public Map<String, Object> isreg(String Uaccount,String Upassword) {
         Map<String, Object> map = new HashMap<>();
         UserExample userExample = new UserExample();
         UserExample.Criteria criteria = userExample.createCriteria();
@@ -130,5 +130,11 @@ public class UserServiceImpl implements UserService {
         userMapper.updateByPrimaryKeySelective(caruser);
     }
 
+    public void updateUserBalanceReturn(Integer Ucode,Float Ubalance)
+    {
+        User user=userMapper.selectByPrimaryKey(Ucode);
+        user.setUbalance(user.getUbalance()-Ubalance);
+        userMapper.updateByPrimaryKeySelective(user);
+    }
 
 }

@@ -69,24 +69,43 @@ public class OrderController {
         return "redirect:/rentSuccess";
     }
 
-    @RequestMapping("/calUserPrice.do")
-    public @ResponseBody Map<String,Object> calUerPrice(HttpServletRequest request,HttpServletResponse response) throws IOException
+    @RequestMapping("/returnTime.do")
+    public @ResponseBody Map<String,Object> returnTime(@RequestParam Integer rno)
     {
         Map<String,Object> map=new HashMap<>();
-        Rent rent=new Rent();
-        rent.setRreturn(new Date());
-
+        Rent rent=orderService.getRentByNo(rno);
+        if(rent.getRreturn()==null)
+        {
+            rent.setRreturn(new Date());
+            orderService.updateRent(rent);
+        }
+        else
+        {
+            rent.setRreturn(new Date());
+            orderService.updateRent(rent);
+        }
+        map.put("message","ok");
         return map;
+
     }
 
-    @RequestMapping(path="returnOrderList/{rno}")
-    public String returnOrderList(@PathVariable Integer rno)
+    @RequestMapping(path="returnCar")
+    public String returnOrderList(HttpServletRequest request,HttpServletResponse response,HttpSession session)
     {
+        Integer rno=Integer.parseInt(request.getParameter("orderListId"));
         Rent orderList=orderService.getRentByNo(rno);
         Car car=carService.getCarByNo(orderList.getCno());
-
+        User user=userService.getCarUserByCode(orderList.getUcode());
+        Float payMoney=Float.valueOf(request.getParameter("userPayMoney"));
+        orderList.setRprice(payMoney);
+        orderList.setRstate(1);
+        orderService.updateRent(orderList);
         car.setCstate(0);
         carService.updateCar(car);
+        user.setUbalance(user.getUbalance()-payMoney);
+        userService.updateUser(user);
+        User user1=userService.getCarUserByCode(user.getUcode());
+        session.setAttribute("user",user1);
         return "redirect:/userOrderList";
     }
 

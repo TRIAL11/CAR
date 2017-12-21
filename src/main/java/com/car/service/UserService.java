@@ -23,4 +23,5 @@ public interface UserService {
     boolean JudgeUserPass(User caruser,String Upassword);
     void updateUserPassword(Integer Ucode,String Upassword);
     void updateUserBalance(Integer Ucode,Float Ubalance);
+    void updateUserBalanceReturn(Integer Ucode,Float Ubalance);
 }
