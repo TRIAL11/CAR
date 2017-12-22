@@ -11,17 +11,30 @@
     <title>主页面</title>
     <jsp:include page="userComm/HeadFile.jsp"></jsp:include>
 </head>
-
 <body>
 
-<jsp:include page="userComm/header.jsp"/>
+<jsp:include page="userComm/header.jsp"></jsp:include>
 
 <div class="container">
-
-    <!--Jumbotron-->
     <div class="jumbotron">
-        <h1>Welcome</h1>
+        <h1 class="bootstro"
+            data-bootstro-title='Welcome ABC company'
+            data-bootstro-content="最后祝您租车愉快，谢谢!"
+            data-bootstro-width="400px"
+            data-bootstro-placement='bottom'
+            data-bootstro-step='5'>Welcome the ABC Car rental company</h1>
         <p class="lead">write something</p>
+        <%
+            if(session.getAttribute("user") == null){%>
+        <b class="bootstro" data-bootstro-title='how to Demonstration again'
+           data-bootstro-content="如果您还是不清楚我们的流程,请点击右边的按钮重新查看演示"
+           data-bootstro-step='4'>if you do not know how to use,please click the button!</b>
+        <a class="btn btn-large btn-success" href="#" id='demo'>Click Me!</a>
+        <%}
+        else{%>
+        <b>祝您租车愉快!</b>
+        <%}
+        %>
     </div>
 
     <div class="row">
@@ -186,5 +199,23 @@
 </div>
 
 <jsp:include page="changepwd.jsp"/>
+<script src="${pageContext.request.contextPath}/static/js/bootstro.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstro.css" type="text/css">
+<script>
+    $(document).ready(function () {
+        $("#demo").click(function(){
+            bootstro.start(".bootstro", {
+                onComplete : function(params)
+                {
+                    alert("Reached end of introduction with total " + (params.idx + 1)+ " slides");
+                },
+                onExit : function(params)
+                {
+                    alert("Introduction stopped at slide #" + (params.idx + 1));
+                },
+            });
+        });
+    })
+</script>
 </body>
 </html>
