@@ -211,7 +211,7 @@
                 },
                 onExit : function(params)
                 {
-                    alert("Introduction stopped at slide #" + (params.idx + 1));
+                    alert("您结束了演示在#" + (params.idx + 1) +"如果想要再次演示请点击绿色按钮");
                 },
             });
         });
