@@ -22,13 +22,13 @@
             data-bootstro-content="最后祝您租车愉快，谢谢!"
             data-bootstro-width="400px"
             data-bootstro-placement='bottom'
-            data-bootstro-step='5'>Welcome the ABC Car rental company</h1>
+            data-bootstro-step='6'>Welcome the ABC Car rental company</h1>
         <p class="lead">write something</p>
         <%
             if(session.getAttribute("user") == null){%>
         <b class="bootstro" data-bootstro-title='how to Demonstration again'
            data-bootstro-content="如果您还是不清楚我们的流程,请点击右边的按钮重新查看演示"
-           data-bootstro-step='4'>if you do not know how to use,please click the button!</b>
+           data-bootstro-step='5'>if you do not know how to use,please click the button!</b>
         <a class="btn btn-large btn-success" href="#" id='demo'>Click Me!</a>
         <%}
         else{%>
@@ -211,7 +211,7 @@
                 },
                 onExit : function(params)
                 {
-                    alert("您结束了演示在#" + (params.idx + 1) +"如果想要再次演示请点击绿色按钮");
+                    alert("您结束了演示在#" + (params.idx + 1) + " ,如果想要再次演示请点击绿色按钮");
                 },
             });
         });

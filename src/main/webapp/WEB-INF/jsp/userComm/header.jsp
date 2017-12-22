@@ -15,7 +15,12 @@
             <ul class="nav navbar-nav">
                 <li><a href="/car/home">logo</a></li>
                 <li><a href="/car/home">首页</a> </li>
-                <li><a href="#">平台简介</a></li>
+                <li class="bootstro"
+                    data-bootstro-title='how to know us'
+                    data-bootstro-content="如果您想要了解我们更多，请点击（其实就是返回了首页...）"
+                    data-bootstro-width="400px"
+                    data-bootstro-placement='bottom'
+                    data-bootstro-step='4'><a href="#">平台简介</a></li>
                 <li class="bootstro"
                     data-bootstro-title='how to rent a car'
                     data-bootstro-content="如果您已经登录，请点击此处进入汽车挑选界面"
