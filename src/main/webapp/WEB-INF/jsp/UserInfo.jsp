@@ -28,6 +28,7 @@
 </script>
     <!--用户中心部分-->
     <!--局部刷新部分-->
+    <!--表单提交-->
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="col-md-2 sidebar">

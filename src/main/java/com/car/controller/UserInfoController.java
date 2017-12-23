@@ -61,6 +61,7 @@ public class UserInfoController {
         return map;
     }
 
+    //改用path 前台提交表单
     @RequestMapping(path="upUserInfo")
     public String uoUserInfo(HttpServletRequest request, HttpServletResponse response,HttpSession session)
     {
