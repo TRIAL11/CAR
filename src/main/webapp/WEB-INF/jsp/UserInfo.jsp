@@ -41,8 +41,8 @@
 
         <div class="col-md-10 col-md-offset-2 main">
             <div class="user-into-fix">
-                <h2>
-                    <div style="padding-left: 350px;">用户基本信息</div></h2>
+                <h1>
+                    <div style="padding-left: 340px;">用户基本信息</div></h1>
                 <div class="user-into-form">
 
                     <form action="/car/upUserInfo" method="post">
