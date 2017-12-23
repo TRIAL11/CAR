@@ -62,7 +62,7 @@
                         <td width="200px">车辆信息</td>
                         <td width="200px">车辆名称</td>
                         <td width="200px">借出时间</td>
-                        <td width="150px">租借单价</td>
+                        <td width="100px">租借单价</td>
                         <td width="100px">车辆状态</td>
                         <td width="150px">归还确认</td>
                     </tr>
@@ -82,25 +82,25 @@
                                 <a href="/car/oneCar/${order.cno}" class="non-returnListName" target="_blank">${order.cname}</a>
                             </td>
 
-                            <td width="200px">
+                            <td width="200px" style="text-align: center">
                             <span class="non-returnListTime">
                                     <fmt:formatDate type="both" value="${order.rlend}"></fmt:formatDate>
                             </span>
                             </td>
 
-                            <td width="100px">
-                            <span class="non-returnListUnitPrice">
+                            <td width="100px" style="text-align: center">
+                            <span class="non-returnListUnitPrice" style="text-align: center">
                                     ${order.cprice}
                             </span>
                             </td>
 
-                            <td width="100px">
+                            <td width="100px" style="text-align: center">
                                 <b class="non-returnListState">
                                     未归还
                                 </b>
                             </td>
 
-                            <td width="150px">
+                            <td width="150px" style="text-align: center">
                                 <c:choose>
                                     <c:when test="${order.rstate==0}">
                                         <c:set var="orderState" value="确认归还"></c:set>
@@ -112,7 +112,7 @@
                                         <c:set var="orderState" value="已评价"></c:set>
                                     </c:when>
                                 </c:choose>
-                                <button type="button" class="btn btn-info" onclick="getOrderMessage(${order.rno})"><a href="#" data-toggle="modal" data-target="#modalReturn">${orderState}</a></button>
+                                <button type="button" class="btn btn-default" onclick="getOrderMessage(${order.rno})"><a href="#" data-toggle="modal" data-target="#modalReturn">${orderState}</a></button>
                             </td>
                         </tr>
                     </table>

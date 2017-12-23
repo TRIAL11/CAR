@@ -30,7 +30,14 @@
         </div>
     </div>
     <div class="RentButton">
-        <button type="button" class="btn btn-lg"><a href="#" data-toggle="modal" data-target="#modalRent">立即租借</a></button>
+        <c:choose>
+            <c:when test="${requestScope.car.cstate==0}">
+                <button type="button" class="btn btn-lg btn-default"><a href="#" data-toggle="modal" data-target="#modalRent">立即租借</a></button>
+            </c:when>
+            <c:when test="${requestScope.car.cstate==1}">
+                <button type="button" class="btn btn-lg btn-warning" disabled="disabled">已被租借</button>
+            </c:when>
+        </c:choose>
     </div>
 </div>
 
