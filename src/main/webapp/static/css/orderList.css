@@ -58,3 +58,9 @@
     width: 100%;
     margin: 20px 0;
 }
+
+.rentUserName {
+    color: #1E90FF;
+    font-family: "Microsoft YaHei";
+    font-size: large;
+}

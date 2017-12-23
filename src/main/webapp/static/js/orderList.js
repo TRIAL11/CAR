@@ -21,6 +21,9 @@ function getOrderMessage(rno) {
         },
         success:function (rent) {
             var rLend=dateChange(rent.rlend);
+
+            $(".user-pay [name='userRentCarName']").val(rent.cname);
+
             $(".user-pay [name='orderListId']").val(rent.rno);
             $(".user-pay [name='userLendTimeHid']").val(rent.rlend);
             $(".user-pay [name='userLendTime']").val(rLend);
@@ -45,23 +48,31 @@ function calPriceButton() {
     shouldPay=shouldPay.toFixed(1);
     $(".user-pay [name='userPayMoney']").val(shouldPay);
     var rno=$(".user-pay [name='orderListId']").val();
+    var sPrice=$(".user-pay [name='userPayMoney']").val();
     $.ajax({
         url:"/car/returnTime.do",
         Type:"POST",
         dataType:"json",
         data:{
             rno:rno,
+            sPrice:sPrice
         },
         success:function (data) {
             if(data.message==="ok")
             {
-                $("#modalReturn.error-i").html("<div class='alert alert-success login-message'>Success</div>");
+                $("#error-i").html("<div class='alert alert-success warn-message'>可以支付</div>");
+                $("#returnButton").attr("disabled",false);
+            }
+            else
+            {
+                $("#error-i").html("<div class='alert alert-danger warn-message'>余额不足请先充值一定金额，<a href='/car/rechargeCenter'>去充值</a></div>");
+                $("#returnButton").attr("disabled",true);
             }
         },
         error:function (xhr) {
             console.log(xhr.responseText);
         }
-    })
+    });
 }
 
 function dateChange(timeStamp) {

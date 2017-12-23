@@ -70,23 +70,25 @@ public class OrderController {
     }
 
     @RequestMapping("/returnTime.do")
-    public @ResponseBody Map<String,Object> returnTime(@RequestParam Integer rno)
+    public @ResponseBody Map<String,Object> returnTime(@RequestParam Integer rno,@RequestParam String sPrice)
     {
         Map<String,Object> map=new HashMap<>();
         Rent rent=orderService.getRentByNo(rno);
-        if(rent.getRreturn()==null)
+        User user=userService.getCarUserByCode(rent.getUcode());
+        Float returnPrice=Float.valueOf(sPrice);
+        if(returnPrice>user.getUbalance())
         {
             rent.setRreturn(new Date());
             orderService.updateRent(rent);
+            map.put("message","error");
         }
         else
         {
             rent.setRreturn(new Date());
             orderService.updateRent(rent);
+            map.put("message","ok");
         }
-        map.put("message","ok");
         return map;
-
     }
 
     @RequestMapping(path="returnCar")

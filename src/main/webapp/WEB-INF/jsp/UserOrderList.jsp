@@ -142,24 +142,43 @@
                     <div class="user-pay form-group" id="userHidden">
                         <input type="hidden" class="form-control" name="userReturnTimeHid" readonly="readonly">
                     </div>
-                    <div class="user-pay form-group" id="userLT">
-                        <input type="text" class="form-control" name="userLendTime" readonly="readonly">
+                    <div class="ReturnWarn">
+                        <h4>&nbsp;&nbsp;尊敬的 &nbsp;${sessionScope.user.uname}&nbsp;&nbsp;用户,感谢您租用我们公司的车辆，请在归还前仔细查看车辆信息</h4>
                     </div>
-                    <div class="user-pay form-group" id="userRT">
-                        <input type="text" class="form-control" name="userReturnTime" readonly="readonly">
+                    <hr>
+                    <div class="user-pay form-group" id="userCarName">
+                        <label>车辆名称信息:</label>
+                        <input type="text" class="form-control" name="userRentCarName" readonly="readonly">
                     </div>
-                    <div class="user-pay form-group" id="userUP">
-                        <input type="text" class="form-control" name="carUnitPrice" readonly="readonly">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="user-pay form-group" id="userLT">
+                                <label>借出时间:</label>
+                                <input type="text" class="form-control" name="userLendTime" readonly="readonly">
+                            </div>
+                            <div class="user-pay form-group" id="userRT">
+                                <label>归还时间:</label>
+                                <input type="text" class="form-control" name="userReturnTime" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="user-pay form-group" id="userUP">
+                                <label>车辆单价(元/小时)</label>
+                                <input type="text" class="form-control" name="carUnitPrice" readonly="readonly">
+                            </div>
+                            <div class="user-pay form-group" id="userPM">
+                                <label>总计:</label>
+                                <input type="text" class="form-control" name="userPayMoney" readonly="readonly">
+                            </div>
+                        </div>
                     </div>
-                    <div class="user-pay form-group" id="userPM">
-                        <input type="text" class="form-control" name="userPayMoney" readonly="readonly">
-                    </div>
+
                 </div>
                 <div class="modal-footer">
-                    <div class="error-i">
+                    <div class="error-i" id="error-i">
                     </div>
                     <button type="button" class="btn btn-primary btn-lg" onclick="calPriceButton()">结算</button>
-                    <button type="submit" class="btn btn-info btn-lg" id="returnButton">支付</button>
+                    <button type="submit" class="btn btn-info btn-lg" id="returnButton" disabled="disabled">支付</button>
                 </div>
             </form>
         </div>
