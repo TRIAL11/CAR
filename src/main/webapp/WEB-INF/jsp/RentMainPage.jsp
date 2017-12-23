@@ -15,7 +15,7 @@
     <jsp:include page="userComm/HeadFile.jsp"></jsp:include>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/rentMainPage.css" type="text/css">
 </head>
-<body>
+<body style="padding: 70px;overflow: scroll">
 <jsp:include page="userComm/header.jsp"></jsp:include>
 
 <div class="con">

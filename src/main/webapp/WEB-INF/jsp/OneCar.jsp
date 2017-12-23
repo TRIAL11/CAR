@@ -16,7 +16,7 @@
     <script src="${pageContext.request.contextPath}/static/js/oneCar.js"></script>
 
 </head>
-<body>
+<body style="padding: 70px;overflow: scroll">
 <jsp:include page="userComm/header.jsp"></jsp:include>
 
 <!--JudgeMessage-->

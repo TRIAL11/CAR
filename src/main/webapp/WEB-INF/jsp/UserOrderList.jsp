@@ -18,7 +18,7 @@
     <link href="${pageContext.request.contextPath}/static/css/orderList.css" rel="stylesheet" type="text/css">
     <script src="${pageContext.request.contextPath}/static/js/orderList.js"></script>
 </head>
-<body>
+<body style="padding: 70px">
 <jsp:include page="userComm/header.jsp"></jsp:include>
 
 <script>

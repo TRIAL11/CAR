@@ -19,15 +19,6 @@ public class OrderServiceImpl implements OrderService{
     @Resource
     private RentMapper rentMapper;
 
-    /*public Rent setRentReturn(Rent rent)
-    {
-        Date date=new Date();
-        date.getTime();
-        rent.setRreturn(date);
-        rent.setRstate(1);
-        return rent;
-    }*/
-
     public Rent setRent(User user, Car car)
     {
         Date date=new Date();

@@ -11,7 +11,7 @@
     <title>主页面</title>
     <jsp:include page="userComm/HeadFile.jsp"></jsp:include>
 </head>
-<body>
+<body style="padding: 90px;overflow: scroll">
 
 <jsp:include page="userComm/header.jsp"></jsp:include>
 

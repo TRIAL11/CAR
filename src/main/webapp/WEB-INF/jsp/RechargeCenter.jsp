@@ -14,7 +14,7 @@
     <link href="${pageContext.request.contextPath}/static/css/userInfo.css" rel="stylesheet" type="text/css">
 
 </head>
-<body>
+<body style="padding: 70px;overflow: scroll">
 <jsp:include page="userComm/header.jsp"></jsp:include>
 
 <script>
@@ -37,6 +37,9 @@
         </div>
 
     <div class="col-md-10 col-md-offset-2 main">
+        <div style="padding-left:150px">
+            <b style="font-size: 200%">用户充值中心</b>
+        </div>
         <div style="padding-left: 120px;margin: 30px">
             <div class="row user-info-form-fix">
                 <div class="form-group has-feedback" id="groupAcc">

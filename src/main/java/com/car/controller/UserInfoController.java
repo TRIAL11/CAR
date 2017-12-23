@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
@@ -60,24 +61,22 @@ public class UserInfoController {
         return map;
     }
 
-    @RequestMapping("/upUserInfo.do")
-    public String uoUserInfo(HttpServletRequest request,HttpSession session)
+    @RequestMapping(path="upUserInfo")
+    public String uoUserInfo(HttpServletRequest request, HttpServletResponse response,HttpSession session)
     {
-        User caruser=(User)session.getAttribute("user");
-        User caruser1=new User();
+        Integer ucode=Integer.parseInt(request.getParameter("Ucode"));
+        User caruser=userService.getCarUserByCode(ucode);
         String Uname=request.getParameter("Uname");
         String Uphone=request.getParameter("Uphone");
         String Uid=request.getParameter("Uid");
         String Uemail=request.getParameter("Uemail");
-        caruser1.setUcode(caruser.getUcode());
-        caruser1.setUname(Uname);
-        caruser1.setUphone(Uphone);
-        caruser1.setUid(Uid);
-        caruser1.setUemail(Uemail);
-        userService.updateUserInfo(caruser1);
-
+        caruser.setUname(Uname);
+        caruser.setUphone(Uphone);
+        caruser.setUid(Uid);
+        caruser.setUemail(Uemail);
+        userService.updateUserInfo(caruser);
         User caruser2=userService.getCarUserByCode(caruser.getUcode());
         session.setAttribute("user",caruser2);
-        return "redirect:UserInfo";
+        return "redirect:/UserInfo";
     }
 }

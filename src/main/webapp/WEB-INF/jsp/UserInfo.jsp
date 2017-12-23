@@ -15,7 +15,7 @@
     <jsp:include page="userComm/HeadFile.jsp"></jsp:include>
     <link href="${pageContext.request.contextPath}/static/css/userInfo.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body style="padding: 70px">
 <jsp:include page="userComm/header.jsp"></jsp:include>
 
 <script>
@@ -28,6 +28,7 @@
 </script>
     <!--用户中心部分-->
     <!--局部刷新部分-->
+<div class="container-fluid">
     <div class="row-fluid">
         <div class="col-md-2 sidebar">
             <ul class="nav nav-sidebar">
@@ -42,7 +43,17 @@
                 <h2>
                     <div style="padding-left: 350px;">用户基本信息</div></h2>
                 <div class="user-into-form">
-                    <form action="/car/upUserInfo.do" method="post">
+
+                    <form action="/car/upUserInfo" method="post">
+                        <div style="padding-left: 120px;margin: 30px">
+                            <div class="row user-info-form-fix">
+                                <div class="form-group has-feedback" id="groupUcode">
+                                    <div>
+                                        <input type="hidden" readonly="readonly" class="form-control" name="Ucode" value="${sessionScope.user.ucode}"/>
+                                    </div>
+                                </div>
+                            </div></div>
+
                         <div style="padding-left: 120px;margin: 30px">
                             <div class="row user-info-form-fix">
                                 <div class="form-group has-feedback" id="groupAcc">
@@ -104,7 +115,7 @@
                                         <label class="control-label">邮箱</label>
                                     </div>
                                     <div class="col-md-5">
-                                        <input type="email" class="form-control" name="Uemail" value="${sessionScope.user.uemail}"/>
+                                        <input type="text" class="form-control" name="Uemail" value="${sessionScope.user.uemail}"/>
                                         <div class="error-if">
                                         </div>
                                     </div>
@@ -127,6 +138,6 @@
         </div>
     </div>
 
-
+</div>
 </body>
 </html>
