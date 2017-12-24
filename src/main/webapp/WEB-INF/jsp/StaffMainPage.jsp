@@ -19,6 +19,31 @@
 </head>
 <body>
 <jsp:include page="staffComm/StaffHeader.jsp"></jsp:include>
+<div class="container-fluid">
+    <div class="carNumberTotal">
+        <h3>车辆类型数量统计图</h3>
+        <div class="carTotal col-md-12">
+            <div class="col-md-7 carDetails">
+                <p>本公司现共有车X辆,其中</p>
+                <p>carType1:number</p>
+                <p>carType2:number</p>
+                <p>carType3:number</p>
+                <p>carType4:number</p>
+                <p>carType5:number</p>
+                <p>carType6:number</p>
+                <p>carType7:number</p>
+                <p>carType8:number</p>
+                <p>carType9:number</p>
+                <p>carType10:number</p>
+            </div>
+            <div class="col-md-5">
+                <div class="chartJs-body">
+                    <canvas id="carTypeCount" width="300px" height="300px"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!--模态框登录-->
 <div id="modalStaffLogin" class="modal fade" role="dialog" aria-labelledby="modalLabelStaffLogin" aria-hidden="true">

@@ -112,7 +112,7 @@
                                         <c:set var="orderState" value="已评价"></c:set>
                                     </c:when>
                                 </c:choose>
-                                <button type="button" class="btn btn-default" onclick="getOrderMessage(${order.rno})"><a href="#" data-toggle="modal" data-target="#modalReturn">${orderState}</a></button>
+                                <a class="btn btn-primary" onclick="getOrderMessage(${order.rno})" href="#" data-toggle="modal" data-target="#modalReturn">${orderState}</a>
                             </td>
                         </tr>
                     </table>
@@ -143,7 +143,7 @@
                         <input type="hidden" class="form-control" name="userReturnTimeHid" readonly="readonly">
                     </div>
                     <div class="ReturnWarn">
-                        <h4>&nbsp;&nbsp;尊敬的 &nbsp;${sessionScope.user.uname}&nbsp;&nbsp;用户,感谢您租用我们公司的车辆，请在归还前仔细查看车辆信息</h4>
+                        <h4>&nbsp;&nbsp;尊敬的 &nbsp;<span class="CarRentName" style="font-size: 130%;color: #0099CC;"> ${sessionScope.user.uname}</span>&nbsp;&nbsp;用户,感谢您租用我们公司的车辆，请在归还前仔细查看车辆信息以及您的账户余额,结算后余额不足将无法支付</h4>
                     </div>
                     <hr>
                     <div class="user-pay form-group" id="userCarName">

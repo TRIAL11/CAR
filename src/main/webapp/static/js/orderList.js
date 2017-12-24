@@ -1,5 +1,7 @@
 $(document).ready(function () {
-
+    $("#returnButton").click(function () {
+        alert("支付成功，感谢你的光临！")
+    })
 });
 
 function emptyPay() {
@@ -105,3 +107,5 @@ function dateChange(timeStamp) {
     }
     return year+"-"+month+"-"+ day +" "+hour+":"+min+":" +sec;
 }
+
+

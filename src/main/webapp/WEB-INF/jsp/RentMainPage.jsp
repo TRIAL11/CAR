@@ -15,7 +15,7 @@
     <jsp:include page="userComm/HeadFile.jsp"></jsp:include>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/rentMainPage.css" type="text/css">
 </head>
-<body style="padding: 70px;overflow: scroll">
+<body style="padding-top: 70px;overflow: scroll;padding-left: 10px">
 <jsp:include page="userComm/header.jsp"></jsp:include>
 
 <div class="con">
@@ -27,17 +27,6 @@
 
 <!--<div class="container-fluid">-->
     <div class="car-show">
-       <!-- <div class="pagehead">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th colspan="6">简要介绍</th>
-                    <th colspan="3">里程</th>
-                    <th colspan="3">价格</th>
-                </tr>
-                </thead>
-            </table>
-        </div>-->
         <div class="title">
         <div class="col-md-12">
             <div class="col-md-1"></div>
@@ -47,23 +36,18 @@
             <div class="titleName col-md-2" >
                 车辆名称
             </div>
-
-            <div class="titleLong  col-md-1">
+            <div class="titleLong  col-md-2">
                 里程(公里)
             </div>
-            <div class="col-md-1">
-            </div>
             <div class="titlePrice col-md-1">
-                价格(元/h)
+                价 &nbsp;格(￥/h)
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-2">
             </div>
         </div>
         </div>
-
         <hr/>
-
         <div class="car-all">
         <c:set var="sum" value="0"></c:set>
         <c:set var="flag" value="1"></c:set>
@@ -72,7 +56,7 @@
                 <c:if test="${flag==1}">
                     <div class="col-md-12">
                             <div class="begin-car">
-                                <div class="col-md-3"><img src="${car.cpicture}" width="235px" height="140px" class="car-picture"></div>
+                                <div class="col-md-3" style="text-align: center"><img src="${car.cpicture}" width="235px" height="140px" class="car-picture"></div>
                                 <div class="col-md-3"><p class="car-name">${car.cname}</p></div>
                                 <div class="col-md-2"><p class="car-long">${car.clong}</p></div>
                                 <div class="col-md-2">
