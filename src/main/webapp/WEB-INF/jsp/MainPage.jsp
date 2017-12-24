@@ -37,21 +37,36 @@
         %>
     </div>
 
-    <div class="row">
-        <div class="col-lg-4">
-            <h2>column1</h2>
-            <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-            <h2>column2</h2>
-            <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
-            <h2>column3</h2>
-            <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+    <!--轮播设置-->
+    <div class="carousel slide" id="myCarousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active" style="text-align:center">
+                <img src="${pageContext.request.contextPath}/static/jpg/homeCar1.jpg" alt="First slide">
+            </div>
+            <div class="item" style="text-align: center;">
+                <img src="${pageContext.request.contextPath}/static/jpg/homeCar6.jpg" width="100%" alt="Second slide">
+            </div>
+            <a class="carousel-control left" href="#myCarousel"
+               data-slide="prev">&lsaquo;
+            </a>
+            <a class="carousel-control right" href="#myCarousel"
+               data-slide="next">&rsaquo;
+            </a>
         </div>
     </div>
 </div>
+<!--轮播js-->
+<script>
+    $(document).ready(function () {
+        $("#myCarousel").carousel({
+            interval: 4000
+        });
+    })
+</script>
 
 <!--模态框 登录界面-->
 <div id="modalLogin" class="modal fade" role="dialog" aria-labelledby="modalLabelLogin" aria-hidden="true">

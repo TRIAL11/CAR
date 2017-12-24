@@ -28,24 +28,23 @@
 <!--<div class="container-fluid">-->
     <div class="car-show">
         <div class="title">
-        <div class="col-md-12">
-            <div class="col-md-1"></div>
-            <div class="thingMess col-md-3">
+            <div class="col-md-12">
+                <div class="col-md-1"></div>
+                <div class="thingMess col-md-3">
                     可租借车辆
-            </div>
-            <div class="titleName col-md-2" >
+                </div>
+                <div class="titleName col-md-2" >
                 车辆名称
-            </div>
-            <div class="titleLong  col-md-2">
+                </div>
+                <div class="titleLong  col-md-2">
                 里程(公里)
-            </div>
-            <div class="titlePrice col-md-1">
+                </div>
+                <div class="titlePrice col-md-1">
                 价 &nbsp;格(￥/h)
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2"></div>
             </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-2">
-            </div>
-        </div>
         </div>
         <hr/>
         <div class="car-all">

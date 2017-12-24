@@ -18,7 +18,7 @@
     <h1 class="page head">车辆信息管理</h1>
     <div class="toolbar">
         <div class="btn-group">
-            <button class="btn btn-default" data-toggle="modal" data-target="#modalAddCar">
+            <a href="/car/addNewCar" class="btn btn-default"></a>
                 <i class="fa fa-plus fa-lg"></i> 增加
             </button>
             <button class="btn btn-default" id="delete-car">

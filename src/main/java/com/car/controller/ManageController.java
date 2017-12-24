@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.*;
@@ -74,4 +75,13 @@ public class ManageController {
         map.put("errorLog","right");
         return map;
     }
+
+    @RequestMapping("/addNewCar")
+    public ModelAndView addNewCar() throws Exception
+    {
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.setViewName("AddNewCar");
+        return modelAndView;
+    }
+
 }
