@@ -151,7 +151,7 @@
                         <input type="text" class="form-control" name="userRentCarName" readonly="readonly">
                     </div>
                     <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <div class="user-pay form-group" id="userLT">
                                 <label>借出时间:</label>
                                 <input type="text" class="form-control" name="userLendTime" readonly="readonly">

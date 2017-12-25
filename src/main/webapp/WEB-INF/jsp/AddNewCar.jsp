@@ -9,8 +9,10 @@
 <html>
 <head>
     <title>新车上架</title>
+    <jsp:include page="staffComm/StaffHeaderFile.jsp"></jsp:include>
 </head>
 <body>
+<jsp:include page="staffComm/StaffHeader.jsp"></jsp:include>
 <div class="container">
     <div class="page-head">
         <h2>车辆信息填写</h2>

@@ -45,10 +45,10 @@
         </ol>
         <div class="carousel-inner">
             <div class="item active" style="text-align:center">
-                <img src="${pageContext.request.contextPath}/static/jpg/homeCar1.jpg" alt="First slide">
+                <img src="${pageContext.request.contextPath}/static/jpg/hc1.png" width="100%" alt="First slide">
             </div>
             <div class="item" style="text-align: center;">
-                <img src="${pageContext.request.contextPath}/static/jpg/homeCar6.jpg" width="100%" alt="Second slide">
+                <img src="${pageContext.request.contextPath}/static/jpg/hc2.png" width="100%" alt="Second slide">
             </div>
             <a class="carousel-control left" href="#myCarousel"
                data-slide="prev">&lsaquo;

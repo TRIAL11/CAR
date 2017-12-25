@@ -11,74 +11,48 @@
     <title>管理员主页面</title>
     <jsp:include page="staffComm/StaffHeaderFile.jsp"></jsp:include>
     <script src="${pageContext.request.contextPath}/static/js/staffLoginOrOut.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/staffMainPage.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/staffMainPage.css" type="text/css">
 </head>
 <body>
 <jsp:include page="staffComm/StaffHeader.jsp"></jsp:include>
-<div class="container-fluid">
-    <div class="carNumberTotal">
-        <h3>车辆类型数量统计图</h3>
-        <div class="carTotal col-md-12">
-            <div class="col-md-7 carDetails">
-                <p>本公司现共有车X辆,其中</p>
-                <p>carType1:number</p>
-                <p>carType2:number</p>
-                <p>carType3:number</p>
-                <p>carType4:number</p>
-                <p>carType5:number</p>
-                <p>carType6:number</p>
-                <p>carType7:number</p>
-                <p>carType8:number</p>
-                <p>carType9:number</p>
-                <p>carType10:number</p>
-            </div>
-            <div class="col-md-5">
-                <div class="chartJs-body">
-                    <canvas id="carTypeCount" width="300px" height="300px"></canvas>
-                </div>
+<div class="container-fluid" style="text-align: center">
+    <%
+        if(session.getAttribute("staff")==null){
+    %>
+    <form action="" method="post">
+        <div class="staffLogin-text">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                <input type="text" name="Saccount" class="form-control" placeholder="Account">
             </div>
         </div>
+        <br>
+        <div class="staffLogin-text">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span> </span>
+                <input type="password" name="Spaw" class="form-control" placeholder="Password">
+            </div>
+        </div>
+        <br>
+        <div class="error-m" id="error-m"></div>
+        <button type="button" class="btn btn-primary" id="staffLoginButton">登录</button>
+    </form>
+    <%}
+    else{%>
+    <h1><center>欢迎${sessionScope.staff.sname}</center></h1>
+    <br>
+    <br>
+    <div class="notice-message">
+    <h2>公告:</h2>
+    <br>
+    <h3><a href="#" class="notice">请各位管理员注意,今天依旧放假&nbsp;!</a> </h3>
+    <h3><a href="#" class="notice">请各位管理员注意,明天还是放假&nbsp;!</a> </h3>
+    <h3><a href="#" class="notice">请各位管理员注意,后天仍然放假&nbsp;!</a> </h3>
     </div>
+    <%}
+    %>
 </div>
 
-<!--模态框登录-->
-<div id="modalStaffLogin" class="modal fade" role="dialog" aria-labelledby="modalLabelStaffLogin" aria-hidden="true">
-    <div class="modal-dialog modal-staffLogin">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="emptyStaffLogin()">&times;</button>
-                <h4 class="modal-title" id="modalLabelStaffLogin">管理员登录</h4>
-            </div>
-            <form action="" method="post">
-                <div class="modal-body modal-staffLoginBody">
-                    <div style="padding: 50px 50px 30px">
-                        <div class="staffLogin-text">
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                <input type="text" name="Saccount" class="form-control" placeholder="Account">
-                            </div>
-                        </div>
-                    <br>
-                    <br>
-                        <div class="staffLogin-text">
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span> </span>
-                                <input type="password" name="Spaw" class="form-control" placeholder="Password">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="error-m" id="error-m"></div>
-                    <button type="button" class="btn btn-primary" id="staffLoginButton">登录</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 </body>
 </html>

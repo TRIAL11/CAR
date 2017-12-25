@@ -1,8 +1,8 @@
-function emptyStaffLogin() {
+/*function emptyStaffLogin() {
     $(".staffLogin-text [name='Saccount']").val("");
     $(".staffLogin-text [name='Spaw']").val("");
     $("#error-m").html("");
-}
+}*/
 
 $(document).ready(function () {
     $("#staffLoginButton").click(function () {

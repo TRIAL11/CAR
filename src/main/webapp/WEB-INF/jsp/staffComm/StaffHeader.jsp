@@ -32,7 +32,6 @@
                 if(session.getAttribute("staff") == null){%>
             <ul class="nav navbar-nav">
                 <li><a href="/car/home">返回用户界面</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#modalStaffLogin">管理员登录</a></li>
             </ul>
             <%}
             else{%>
