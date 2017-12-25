@@ -14,7 +14,7 @@
 </head>
 <jsp:include page="userComm/header.jsp"></jsp:include>
 <body>
-<h3><center>success</center></h3>
+<h3><center>租借成功，感谢您对本公司的支持，祝您一路顺风!</center></h3>
 <h4><center>3s后自动返回订单界面</center></h4>
 <h4><center><a href="/car/userOrderList">如果页面无响应请点击这里</a></center></h4>
 </body>

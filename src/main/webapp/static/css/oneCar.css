@@ -8,4 +8,78 @@
 
 .car-name-detail {
     text-align: center;
+    margin-left: 46px;
+}
+
+.sure-car-username {
+    color: #1E90FF;
+    font-family: "Microsoft YaHei";
+    font-size: 120%;
+}
+
+.sure-car-username:hover {
+    text-decoration: none;
+}
+.sure-car-price {
+    color: green;
+    font-size: 130%;
+}
+
+.car-some-detail >ul {
+    list-style: none;
+    margin-left: 1px;
+}
+.car-some-detail >ul >li {
+    list-style: none;
+    width: 100px;
+    float: left;
+}
+
+.typeBox {
+    text-align: center;
+    color: black;
+    font-size: 135%;
+}
+
+.comm {
+    text-align: center;
+    color: grey;
+}
+
+.verticalLine {
+    border-right: 1px solid #A9A9A9;
+}
+
+.serviceGuarantee {
+    margin-left: 5px;
+}
+
+.car-long-detail {
+    color: green;
+    font-size: 180%;
+}
+
+.car-price-detail {
+    color: #EA0000;
+    font-size: 180%;
+}
+
+.car-other-detail {
+    margin-left: 62px;
+}
+
+.userOperationButton {
+    margin-left: 60px;
+}
+
+.carMainPage :hover {
+    text-decoration: none;
+}
+
+.carNamePage :hover {
+    text-decoration: none;
+}
+
+.custom-self-bar {
+    margin-left: 25px;
 }
