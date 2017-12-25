@@ -57,12 +57,12 @@
             else{%>
             <ul class="nav navbar-nav">
                 <li><a>欢迎</a></li>
-                <li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class=" glyphicon glyphicon-user"></span>
                         ${sessionScope.user.uname}<b class="caret"></b>
                     </a>
-                    <ul class="dropdown-menu" style="min-width: 120px;">
+                    <ul class="dropdown-menu" style="min-width: 120px">
                         <li><a href="/car/userInfo">个人中心</a></li>
                         <li><a href="/car/userOrderList">查询订单</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#modalPass">修改密码</a></li>

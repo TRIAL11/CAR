@@ -16,7 +16,7 @@
     <script src="${pageContext.request.contextPath}/static/js/oneCar.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/oneCar.css" type="text/css">
 </head>
-<body style="padding-top: 100px;overflow: scroll;padding-left: 50px">
+<body style="padding-top: 100px;padding-left: 50px">
 <jsp:include page="userComm/header.jsp"></jsp:include>
 
 <!--JudgeMessage-->
@@ -67,57 +67,6 @@
     </div>
 </div>
 
-
-<script>
-    (function() {
-        var Modal = {};
-//解决Modal弹出时页面左右移动问题
-        Modal.adjustBody_beforeShow = function(){
-            var body_scrollHeight = $('body')[0].scrollHeight;
-            var docHeight = document.documentElement.clientHeight;
-            if(body_scrollHeight > docHeight){
-                $('header').css({
-                    'overflow' : 'hidden',
-                    'padding-right' : '17px'
-                });
-                console.log("1");
-                $('.modal').css({'overflow-y':'hidden'})
-            }else{
-                $('body').css({
-                    'overflow' : 'auto',
-                    'margin-right' : '0'
-                });
-                console.log("2");
-                $('.modal').css({'overflow-y':'auto'})
-            }
-        }
-        Modal.adjustBody_afterShow = function(){
-            var body_scrollHeight = $('body')[0].scrollHeight;
-            var docHeight = document.documentElement.clientHeight;
-            if(body_scrollHeight > docHeight){
-                $('header').css({
-                    'overflow' : 'hidden',
-                    'padding-right' : '0'
-                });
-                console.log("3");
-            }else{
-                $('body').css({
-                    'overflow' : 'auto',
-                    'margin-right' : '0'
-                });
-                console.log("4");
-            }
-        }
-        $(' .modal').modal('hide');
-        $('.modal ').on('show.bs.modal', function (event) {
-            Modal.adjustBody_beforeShow();
-        });
-        $('.modal').on('hidden.bs.modal', function (event) {
-            Modal.adjustBody_afterShow();
-        });
-    })();
-
-</script>
 </body>
 </html>
 

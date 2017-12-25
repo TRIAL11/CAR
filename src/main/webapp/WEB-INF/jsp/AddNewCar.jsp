@@ -16,7 +16,6 @@
         <h2>车辆信息填写</h2>
     </div>
     <div class="page-body">
-
     </div>
 </div>
 </body>
