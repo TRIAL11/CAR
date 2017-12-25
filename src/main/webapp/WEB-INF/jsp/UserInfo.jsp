@@ -42,11 +42,10 @@
         <div class="col-md-10 col-md-offset-2 main">
             <div class="user-into-fix">
                 <h1>
-                    <div style="padding-left: 340px;">用户基本信息</div></h1>
+                    <div style="padding-left: 320px;">用户基本信息</div></h1>
                 <div class="user-into-form">
-
                     <form action="/car/upUserInfo" method="post">
-                        <div style="padding-left: 120px;margin: 30px">
+                        <div style="padding-left: 120px;margin: 0px">
                             <div class="row user-info-form-fix">
                                 <div class="form-group has-feedback" id="groupUcode">
                                     <div>
