@@ -1,99 +1,98 @@
 $(document).ready(function () {
-    $("#modalAddCar").modal({
-        backdrop:false,
-        show:false
-    });
+    window.operateEvents={
+        "click .btn": function (e, value, row, index) {
+            window.open("/car/Admin/" + row.car.cno);
+        }
+    };
 
     $("#CarTable").bootstrapTable({
         columns:[
             {
                 field:'car.cno',
-                checkbox:true
+                checkbox:true,
+                sortable:false
             },
             {
-                field:'car.cid',
-                title:'车辆编码',
-                sortable:true
+                field:"staff.sname",
+                title:'管理员名称',
+                sortable:false
+            },
+            {
+                field:'cartype.tname',
+                title:'车辆类型',
+                sortable:false
             },
             {
                 field:'car.cname',
                 title:'车辆名称',
-                sortable:false
+                sortable:true
+            },
+            {
+                field:'car.clong',
+                title:'表显里程',
+                sortable:true,
+                width:"8%"
+            },
+            {
+                field:'car.cstate',
+                title:'车辆状态',
+                sortable:true,
+                width:"8%",
+                formatter: function (value) {
+                    if(value==1)
+                    {return "<span style='color: #EA0000'>已租借</span>";}
+                    else
+                    {return "闲置";}
+                },
             },
             {
                 field:'car.cprice',
                 title:'车辆价格',
                 sortable:true,
-                editable:{
-                    type:"text",
-                    title:"车辆价格",
-                    width:"6%",
-                    align:"center",
-                    validate:function (value) {
-                        if(!value)
-                        {
-                            return "不能为空";
-                        }
-                        if(!isNaN(value))
-                        {
-                            return "输入必须为数字";
-                        }
-                    }
-                }
             },
             {
-                field:'car.cage',
-                title:'车龄',
-                sortable:true,
-                editable:{
-                    type:"text",
-                    title:"车龄",
-                    width:"6%",
-                    align:"center",
-                    validate:function (value) {
-                        if(!value)
-                        {
-                            return "不能为空";
-                        }
-                        if(!isNaN(value))
-                        {
-                            return "输入必须为数字";
-                        }
-                    }
-                }
+                field:'car.clook',
+                title:'浏览次数',
+                sortable:true
             },
             {
-                field:"car.cstate",
-                title:"汽车状态",
-                sortable:false,
-                validate:function (value) {
-                    if(value==1)
-                    {
-
-                    }
-                }
+                field:'car.cgood',
+                title:'好评',
+                sortable:true
             },
             {
-                field:"car.cpicture",
-                title:""
+                field:'car.cbad',
+                title:'差评',
+                sortable:true
             },
             {
-                field:'car.info',
-                title:'xinxi',
-                sortable:false,
-                editable:{
-                    type:"text",
-                    title:"xinxi",
-                    width:"6%",
-                    align:"center",
-                    validate:function (v) {
-                        if(!v)
-                        {
-                            return "Not null";
-                        }
-                    }
-                }
-            },
-        ]
-    })
-})
+                width:"8%",
+                formatter: function () {
+                    return "<button type='button' class='btn btn-primary'>编辑</button>";
+                },
+                events: operateEvents
+            }],
+        striped: true,      //是否显示行间隔色
+        cache: false,      //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        pagination: true,     //是否启用分页
+        sortable: true,      //是否启用排序
+        sortOrder: 'asc',     //排序方式
+        pageNumber:1,      //table初始化时显示的页数
+        pageSize:10,      //页面大小
+        method : 'post',  // 向服务器请求方式
+        contentType : "application/x-www-form-urlencoded", // 如果是post必须定义
+        url:"/car/PageCarTable",
+        queryParamsType:"",
+        sidePagination: "server",     //服务端分页
+        pageList: [5, 10, 20, 50],
+        search: true,
+        showRefresh: true,
+        showToggle: true,
+        showColumns: true,
+        clickToSelect: true,
+        paginationLoop: false,
+        paginationPreText: "previous",
+        paginationNextText: "next",
+        height: 430,
+    });
+});

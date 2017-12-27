@@ -1,9 +1,8 @@
 package com.car.controller;
 
-import com.car.dao.example.Department;
-import com.car.dao.example.Staff;
-import com.car.service.DepService;
-import com.car.service.StaffService;
+import com.car.dao.example.*;
+import com.car.service.*;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.test.web.servlet.result.JsonPathResultMatchers;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +20,12 @@ public class ManageController {
     private StaffService staffService;
     @Resource
     private DepService depService;
+    @Resource
+    private CarService carService;
+    @Resource
+    private UserService userService;
+    @Resource
+    private CarTypeService carTypeService;
 
     @RequestMapping("/staffTable.do")
     public @ResponseBody
@@ -82,6 +87,48 @@ public class ManageController {
         ModelAndView modelAndView=new ModelAndView();
         modelAndView.setViewName("AddNewCar");
         return modelAndView;
+    }
+
+    @RequestMapping("/PageCarTable")
+    public @ResponseBody Map<String,Object> pageCarTable(Integer pageNumber,Integer pageSize)
+    {
+        Map<String,Object> map=new HashMap<>();
+        List<Map> list=new ArrayList<>();
+        PageInfo<Car> pageInfo=null;
+        pageInfo=carService.getPageCar(pageNumber,pageSize);
+        List<Car> carList=pageInfo.getList();
+        for(int i=0;i<carList.size();i++)
+        {
+            Car car=carList.get(i);
+            Map<String,Object> map1=new HashMap<>();
+            Staff staff=staffService.getStaffByNo(car.getSno());
+            Cartype cartype=carTypeService.getCarTypeByTno(car.getTno());
+            map1.put("car",car);
+            map1.put("staff",staff);
+            map1.put("cartype",cartype);
+            list.add(map1);
+        }
+        map.put("total",pageInfo.getTotal());
+        map.put("rows",list);
+        return map;
+    }
+
+    @RequestMapping("/getCarTable")
+    public @ResponseBody List<Map> getCarTable()
+    {
+        List<Map> list=new ArrayList<>();
+        List<Car> carList=carService.getCarTable();
+        for(Car car:carList)
+        {
+            Map<String,Object> map=new HashMap<>();
+            Cartype cartype=carTypeService.getCarTypeByTno(car.getTno());
+            Staff staff=staffService.getStaffByNo(car.getSno());
+            map.put("car",car);
+            map.put("cartype",cartype);
+            map.put("staff",staff);
+            list.add(map);
+        }
+        return list;
     }
 
 }

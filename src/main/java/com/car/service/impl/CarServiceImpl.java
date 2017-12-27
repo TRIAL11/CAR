@@ -1,13 +1,15 @@
 package com.car.service.impl;
 
-
 import com.car.dao.CarMapper;
 import com.car.dao.example.Car;
 import com.car.dao.example.CarExample;
 import com.car.service.CarService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -37,8 +39,42 @@ public class CarServiceImpl implements CarService{
         carMapper.deleteByPrimaryKey(Cno);
     }
 
+    @Override
     public void updateCar(Car car)
     {
         carMapper.updateByPrimaryKeySelective(car);
+    }
+
+    @Override
+    public PageInfo<Car> pageCar(Integer pageNumber, Integer pageSize, List<Car> list)
+    {
+        if(list==null)
+        {
+            return null;
+        }
+        else
+        {
+            return new PageInfo<>(list);
+        }
+    }
+
+    @Override
+    public PageInfo<Car> getPageCar(Integer pageNumber,Integer pageSize)
+    {
+        PageHelper.startPage(pageNumber,pageSize);
+        List<Car> list=getAllCar();
+        return pageCar(pageNumber,pageSize,list);
+    }
+
+    @Override
+    public List<Car> getCarTable()
+    {
+        List<Integer> list=new ArrayList<>();
+        list.add(0);
+        list.add(1);
+        CarExample carExample=new CarExample();
+        CarExample.Criteria criteria=carExample.createCriteria();
+        criteria.andCstateIn(list);
+        return carMapper.selectByExample(carExample);
     }
 }
