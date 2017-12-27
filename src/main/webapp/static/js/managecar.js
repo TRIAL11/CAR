@@ -40,9 +40,13 @@ $(document).ready(function () {
                 width:"8%",
                 formatter: function (value) {
                     if(value==1)
-                    {return "<span style='color: #EA0000'>已租借</span>";}
+                    {
+                        return "<span style='color: #EA0000'>已租借</span>";
+                    }
                     else
-                    {return "闲置";}
+                    {
+                        return "闲置";
+                    }
                 },
             },
             {
