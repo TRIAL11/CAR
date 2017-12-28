@@ -35,8 +35,8 @@ public class MainPageController {
     @RequestMapping("/rentMainPage")
     public ModelAndView RentMainPage(ModelAndView modelAndView)
     {
-        List<Car> list=carService.getAllCar();
-        modelAndView.addObject("cars",list);
+        List<Car> list1=carService.getAllCar();
+        modelAndView.addObject("cars",list1);
         modelAndView.setViewName("RentMainPage");
         return modelAndView;
     }

@@ -16,15 +16,6 @@ public class RentMainPageController {
     @Resource
     private CarService carService;
 
-    @RequestMapping("/rentMainPrices")
-    public ModelAndView rentMainPrices(ModelAndView modelAndView)
-    {
-        List<Car> list=carService.getAllCar();
-        modelAndView.addObject("cars",list);
-        modelAndView.setViewName("RentMainPrices");
-        return modelAndView;
-    }
-
     @RequestMapping(path="/oneCar/{cno}")
     public String singleCar(@PathVariable Integer cno, HttpServletRequest request)
     {
@@ -32,4 +23,6 @@ public class RentMainPageController {
         request.setAttribute("car",car);
         return "OneCar";
     }
+
+
 }

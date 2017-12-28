@@ -91,6 +91,6 @@
 </div>
 <!--模态框-->
 <jsp:include page="RechargePage.jsp"/>
-
+<jsp:include page="userComm/footer.jsp"></jsp:include>
 </body>
 </html>

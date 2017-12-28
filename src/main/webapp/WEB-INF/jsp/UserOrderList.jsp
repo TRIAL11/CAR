@@ -184,6 +184,6 @@
         </div>
     </div>
 </div>
-
+<jsp:include page="userComm/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -11,7 +11,7 @@
     <title>主页面</title>
     <jsp:include page="userComm/HeadFile.jsp"></jsp:include>
 </head>
-<body style="padding: 90px;overflow: scroll">
+<body style="padding-top: 90px;padding-bottom: 60px;overflow: scroll;">
 
 <jsp:include page="userComm/header.jsp"></jsp:include>
 
@@ -29,7 +29,7 @@
         <b class="bootstro" data-bootstro-title='how to Demonstration again'
            data-bootstro-content="如果您还是不清楚我们的流程,请点击右边的按钮重新查看演示"
            data-bootstro-step='5'>if you do not know how to use,please click the button!</b>
-        <a class="btn btn-large btn-success" href="#" id='demo'>Click Me!</a>
+        <a class="btn btn-lg btn-info" href="#" id='demo'>Click Me!</a>
         <%}
         else{%>
         <b>祝您租车愉快!</b>
@@ -232,5 +232,6 @@
         });
     })
 </script>
+<jsp:include page="userComm/footer.jsp"></jsp:include>
 </body>
 </html>

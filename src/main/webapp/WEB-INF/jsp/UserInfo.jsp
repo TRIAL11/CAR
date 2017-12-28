@@ -137,7 +137,11 @@
             </div>
         </div>
     </div>
-
 </div>
+<footer class="footer navbar-fixed-bottom" style="background-color: #F5F5F5; height: 40px">
+    <div class="container">
+        <p class="text-muted" style="line-height: 45px;text-align: center">CopyRight &copy; Trial11 2017</p>
+    </div>
+</footer>
 </body>
 </html>

@@ -79,9 +79,20 @@
     </div>
 
 <!--</div>-->
-    <div class="search-more">
-        <span class="search-more-font">123</span>
+    <div class="rentMainPage">
+        <ul class="pagination pagination-lg">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+        </ul>
     </div>
+    <!---->
 </div>
+
+<jsp:include page="userComm/footer.jsp"></jsp:include>
 </body>
 </html>

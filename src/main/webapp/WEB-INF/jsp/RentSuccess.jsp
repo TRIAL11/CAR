@@ -19,5 +19,6 @@
 <h4><center>3s后自动返回订单界面</center></h4>
 <br>
 <h4><center>如果页面无响应<a href="/car/userOrderList">请点击这里返回订单界面</a>或<a href="/car/rentMainPage">返回租借主页面</a></center></h4>
+<jsp:include page="userComm/footer.jsp"></jsp:include>
 </body>
 </html>
