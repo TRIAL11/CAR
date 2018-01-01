@@ -20,7 +20,7 @@
     <h1 class="page head">车辆信息管理</h1>
     <div class="toolbar">
         <div class="btn-group">
-            <a class="btn btn-default" href="/car/addNewCar">
+            <a class="btn btn-default" href="/car/addNewCar" target="_blank">
                 <i class="fa fa-plus fa-lg"></i> 增加
             </a>
             <button class="btn btn-default" id="delete-car">

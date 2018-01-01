@@ -46,6 +46,12 @@ public class CarServiceImpl implements CarService{
     }
 
     @Override
+    public boolean searchCar(String Cname, CarExample.Criteria criteria) {
+        criteria.andCnameLike("%" + Cname + "%");
+        return true;
+    }
+
+    @Override
     public PageInfo<Car> pageCar(Integer pageNumber, Integer pageSize, List<Car> list)
     {
         if(list==null)
@@ -77,4 +83,35 @@ public class CarServiceImpl implements CarService{
         criteria.andCstateIn(list);
         return carMapper.selectByExample(carExample);
     }
+
+
+    @Override
+    public CarExample orderCar(String field, String method,CarExample carExample)
+    {
+        carExample.setOrderByClause(field + " " +method);
+        return carExample;
+    }
+
+    @Override
+    public PageInfo<Car> getPageCar(Integer pageNumber,Integer pageSize,String sortName,String sortOrder)
+    {
+        PageHelper.startPage(pageNumber,pageSize);
+        CarExample carExample=new CarExample();
+        carExample=orderCar(sortName,sortOrder,carExample);
+        List<Car> list=carMapper.selectByExample(carExample);
+        return pageCar(pageNumber,pageSize,list);
+    }
+
+    @Override
+    public PageInfo<Car> getPageCar(Integer pageNumber, Integer pageSize, String sortName, String sortOrder, String searchText)
+    {
+        PageHelper.startPage(pageNumber,pageSize);
+        CarExample carExample = new CarExample();
+        CarExample.Criteria criteria = carExample.createCriteria();
+        searchCar(searchText, criteria);
+        carExample = orderCar(sortName, sortOrder, carExample);
+        List<Car> list = carMapper.selectByExample(carExample);
+        return pageCar(pageNumber, pageSize, list);
+    }
+
 }

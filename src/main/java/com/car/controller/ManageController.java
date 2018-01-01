@@ -3,28 +3,28 @@ package com.car.controller;
 import com.car.dao.example.*;
 import com.car.service.*;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.test.web.servlet.result.JsonPathResultMatchers;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 @Controller
 public class ManageController {
-    @Resource
+    @Autowired
     private StaffService staffService;
-    @Resource
+    @Autowired
     private DepService depService;
-    @Resource
+    @Autowired
     private CarService carService;
-    @Resource
+    @Autowired
     private UserService userService;
-    @Resource
+    @Autowired
     private CarTypeService carTypeService;
 
     @RequestMapping("/staffTable.do")
@@ -89,14 +89,74 @@ public class ManageController {
         return modelAndView;
     }
 
+    @RequestMapping(path="/Admin/{cno}")
+    public String adminCar(@PathVariable Integer cno, HttpServletRequest request)
+    {
+        Car car=carService.getCarByNo(cno);
+        Staff staff=staffService.getStaffByNo(car.getSno());
+        Cartype cartype=carTypeService.getCarTypeByTno(car.getTno());
+        request.setAttribute("staff",staff);
+        request.setAttribute("cartype",cartype);
+        request.setAttribute("car",car);
+        return "EditCar";
+    }
+
+    @RequestMapping("/getAllCarType")
+    public @ResponseBody Map<String,Object> getAllCattype()
+    {
+        Map<String,Object> map=new HashMap<>();
+        List<Cartype> list=carTypeService.getAllCarType();
+        map.put("cartype",list);
+        return map;
+    }
+
+    @RequestMapping("/addNewCar.do")
+    public String addNewCar(HttpSession session)
+    {
+        return "manageCar";
+    }
+
+
     @RequestMapping("/PageCarTable")
-    public @ResponseBody Map<String,Object> pageCarTable(Integer pageNumber,Integer pageSize)
+    public @ResponseBody Map<String,Object> pageCarTable(Integer pageNumber,Integer pageSize, String sortName, String sortOrder, String searchText)
     {
         Map<String,Object> map=new HashMap<>();
         List<Map> list=new ArrayList<>();
         PageInfo<Car> pageInfo=null;
-        pageInfo=carService.getPageCar(pageNumber,pageSize);
+        if(sortName!=null)
+        {
+            String[] sortObject = sortName.split("\\.");
+            if(sortObject[0].equals("cartype")&&sortObject[1].equals("tname"))
+            {
+                sortObject[1]="tno";
+            }
+            else if(sortObject[0].equals("staff")&&sortObject[1].equals("sname"))
+            {
+                sortObject[1]="sno";
+            }
+
+            if(searchText==null||searchText.equals(""))
+            {
+                pageInfo=carService.getPageCar(pageNumber,pageSize,sortObject[1],sortOrder);
+            }
+            else
+            {
+                pageInfo=carService.getPageCar(pageNumber,pageSize,sortObject[1],sortOrder,searchText);
+            }
+        }
+        else
+        {
+            if(searchText==null||searchText.equals(""))
+            {
+                pageInfo=carService.getPageCar(pageNumber,pageSize,"cno","asc");
+            }
+            else
+            {
+                pageInfo=carService.getPageCar(pageNumber,pageSize,"cno","asc",searchText);
+            }
+        }
         List<Car> carList=pageInfo.getList();
+
         for(int i=0;i<carList.size();i++)
         {
             Car car=carList.get(i);

@@ -10,17 +10,17 @@ $(document).ready(function () {
             {
                 field:'car.cno',
                 checkbox:true,
-                sortable:false
+                sortable:true
             },
             {
                 field:"staff.sname",
                 title:'管理员名称',
-                sortable:false
+                sortable:true
             },
             {
                 field:'cartype.tname',
                 title:'车辆类型',
-                sortable:false
+                sortable:true
             },
             {
                 field:'car.cname',
@@ -86,6 +86,7 @@ $(document).ready(function () {
         method : 'post',  // 向服务器请求方式
         contentType : "application/x-www-form-urlencoded", // 如果是post必须定义
         url:"/car/PageCarTable",
+        //dataType:"json",
         queryParamsType:"",
         sidePagination: "server",     //服务端分页
         pageList: [5, 10, 20, 50],
