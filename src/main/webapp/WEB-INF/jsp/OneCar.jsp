@@ -19,7 +19,7 @@
 <body style="padding-top: 76px;padding-left: 50px">
 <jsp:include page="userComm/header.jsp"></jsp:include>
 
-<!--JudgeMessage-->
+<!--JudgeMessage hidden-->
 <input type="hidden" id="ucode" value="${sessionScope.user.ucode}">
 <input type="hidden" id="cno" value="${requestScope.car.cno}">
 

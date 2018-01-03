@@ -19,11 +19,6 @@
 <jsp:include page="userComm/header.jsp"></jsp:include>
 
 <div class="con">
-    <!--<div class="rentHead">
-        <span class="headType">
-            品牌：
-        </span>
-    </div>-->
 <!--<div class="container-fluid">-->
     <div class="car-show">
         <div class="title">
