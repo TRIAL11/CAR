@@ -100,4 +100,34 @@ $(document).ready(function () {
         paginationNextText: "next",
         height: 430,
     });
+
+    $("#delete-car").bind("click",deleteCar);
 });
+
+function deleteCar() {
+    var arr=($('#CarTable').bootstrapTable('getSelections'));
+    var array=new Array();
+    if(arr.length!==0)
+    {
+        for(var i=0;i<arr.length;i++)
+        {
+            array.push(arr[i].car);
+        }
+        $.ajax({
+            url:"/car/deleteCarByNo.do",
+            type:"POST",
+            dataType: "json",
+            data: JSON.stringify(array),
+            success:function (data) {
+                if(data.message==="right")
+                {
+                    alert("right");
+                    window.location.href="/car/manageCar";
+                }
+            },
+            error:function (xhr) {
+                console.log(xhr.responseText);
+            }
+        });
+    }
+}

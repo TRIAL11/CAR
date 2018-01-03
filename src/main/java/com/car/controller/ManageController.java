@@ -207,4 +207,16 @@ public class ManageController {
         carService.updateCar(car);
         return "redirect:/manageCar";
     }
+
+    @RequestMapping("/deleteCarByNo.do")
+    public @ResponseBody Map<String,Object> deleteCarByNo(@RequestBody Car[] car)
+    {
+        Map<String,Object> map=new HashMap<>();
+        for(Car car1:car)
+        {
+            carService.deleteCarByNo(car1.getCno());
+        }
+        map.put("message","right");
+        return map;
+    }
 }
