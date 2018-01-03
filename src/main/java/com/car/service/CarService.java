@@ -16,8 +16,6 @@ public interface CarService {
     void updateCar(Car car);
 
     boolean searchCar(String Cname, CarExample.Criteria criteria);
-    //CarExample statusCar(CarExample carExample,Integer... status);
-    //boolean statusCar(CarExample.Criteria criteria,List<Integer> list);
     CarExample orderCar(String field, String method,CarExample carExample);
 
     PageInfo<Car> pageCar(Integer pageNumber,Integer pageSize,List<Car> list);

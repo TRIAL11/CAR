@@ -5,13 +5,13 @@ import com.car.service.*;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.test.web.servlet.result.JsonPathResultMatchers;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.*;
 
 @Controller
@@ -191,4 +191,20 @@ public class ManageController {
         return list;
     }
 
+    @RequestMapping(path="editCar")
+    public String editCarAdmin(HttpServletRequest request, HttpServletResponse response)
+    {
+        Integer cno=Integer.parseInt(request.getParameter("edit-car-cno"));
+        Car car=carService.getCarByNo(cno);
+        String name=request.getParameter("edit-car-name");
+        String carlong=request.getParameter("edit-car-long");
+        Float price=Float.valueOf(request.getParameter("edit-car-price"));
+        Integer state=Integer.parseInt(request.getParameter("edit-car-state"));
+        car.setCname(name);
+        car.setClong(carlong);
+        car.setCprice(price);
+        car.setCstate(state);
+        carService.updateCar(car);
+        return "redirect:/manageCar";
+    }
 }

@@ -9,3 +9,11 @@
 .admin-add-car {
     margin-left: 200px;
 }
+
+.add-car-button {
+    text-align: center;
+}
+
+#addCarButton {
+    width: 120px;
+}

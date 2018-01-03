@@ -177,8 +177,8 @@
                 <div class="modal-footer">
                     <div class="error-i" id="error-i">
                     </div>
-                    <button type="button" class="btn btn-primary btn-lg" onclick="calPriceButton()">结算</button>
-                    <button type="submit" class="btn btn-info btn-lg" id="returnButton" disabled="disabled">支付</button>
+                    <button type="button" class="btn btn-primary " onclick="calPriceButton()">结算</button>
+                    <button type="submit" class="btn btn-info" id="returnButton" disabled="disabled">支付</button>
                 </div>
             </form>
         </div>

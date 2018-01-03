@@ -6,6 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    request.setAttribute("basePath", basePath);
+%>
 <html>
 <head>
     <title>新车上架</title>
@@ -20,15 +25,10 @@
         <h2>车辆信息填写</h2>
     </div>
     <div class="page-body">
-        <form action="" method="post">
+        <form action="${basePath}file/upload" method="post" enctype="multipart/form-data">
             <div class="addNewCar-body">
-
                 <div class="row">
                     <div class="col-md-7">
-                    <div class="form-group">
-                        <input type="hidden" class="form-control" value="${sessionScope.staff.sno}">
-                    </div>
-
                 <div class="admin-add-car form-group has-feedback" id="addCarName">
                     <div class="add-car-label">
                         <label class="control-label">汽车名称</label>
@@ -66,6 +66,7 @@
                     <div class="add-car-text">
                         <input type="text" class="form-control" name="carLong" placeholder="carLong">
                         <div class="error-input"></div>
+
                     </div>
                 </div>
 
@@ -80,14 +81,16 @@
                 </div>
                     </div>
 
-                    <div class="add-car-picture col-md-5">
-                        <input type="text" name="carPicure">
+                    <div class="add-car-picture col-md-5 form-group">
+                        <label>图片上传</label>
+                        <input type="file" name="carPicture" id="fileupload" class="uploadfile" >
+                        <div class="error-input"></div>
                     </div>
 
                 </div>
 
                 <div class="add-car-button">
-                    <button type="button" class="btn btn-default" id="addCarButton">提交</button>
+                    <button type="submit" class="btn btn-primary" id="addCarButton">提交</button>
                 </div>
             </div>
         </form>

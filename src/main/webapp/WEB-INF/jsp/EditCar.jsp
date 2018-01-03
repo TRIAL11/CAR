@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <title>管理员编辑物品</title>
@@ -15,8 +18,12 @@
 <jsp:include page="staffComm/StaffHeader.jsp"></jsp:include>
 <h1 style="text-align: center">车辆信息编辑</h1>
 <div class="container">
+    <form action="/car/editCar" method="post">
 <div class="car-edit-body">
     <div class="all-message row">
+        <div class="form-group">
+            <input type="hidden" class="form-control" name="edit-car-cno" value="${requestScope.car.cno}">
+        </div>
         <div class="col-md-6">
             <div class="car-edit-name">
                 <div class="form-group has-feedback">
@@ -49,13 +56,22 @@
                         <div class="error-edit"></div>
                     </div>
                 </div>
+
                 <div class="car-edit-price col-md-6">
                     <div class="form-group has-feedback">
                         <label class="control-label">单价(元/小时)</label>
-                        <input type="text" class="form-control" name="edit-car-price" value="${requestScope.car.cprice}">
+                        <c:choose>
+                            <c:when test="${car.cstate==0}">
+                                <input type="text" class="form-control" name="edit-car-price" value="${requestScope.car.cprice}">
+                            </c:when>
+                            <c:when test="${car.cstate==1}">
+                                <input type="text" class="form-control" name="edit-car-price" value="${requestScope.car.cprice}" readonly="readonly">
+                            </c:when>
+                        </c:choose>
                         <div class="error-edit"></div>
                     </div>
                 </div>
+
             </div>
             <div class="row">
                 <div class="car-edit-state col-md-6">
@@ -108,9 +124,10 @@
     <br>
     <div class="editButtons" style="margin-left: 205px">
     <button type="button" class="btn btn-danger btn-lg" id="changeCarMessage">修改</button>
-    <button type="submit" class="btn btn-success btn-lg" id="saveEdit" disabled="disabled">保存</button>
+    <button type="submit" class="btn btn-success btn-lg" id="saveEdit">保存</button>
     </div>
 </div>
+    </form>
 </div>
 </body>
 </html>

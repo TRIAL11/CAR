@@ -13,7 +13,7 @@
 <head>
     <title>车辆详细信息</title>
     <jsp:include page="userComm/HeadFile.jsp"></jsp:include>
-    <script src="${pageContext.request.contextPath}/static/js/oneCar.js"></script>
+
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/oneCar.css" type="text/css">
 </head>
 <body style="padding-top: 76px;padding-left: 50px">
