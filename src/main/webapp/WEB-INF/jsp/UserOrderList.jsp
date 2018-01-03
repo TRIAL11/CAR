@@ -129,7 +129,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="emptyPay()">&times;</button>
-                <h4 class="modal-title" id="modalLabelReturn">租借确认单</h4>
+                <h4 class="modal-title" id="modalLabelReturn">归还确认单</h4>
             </div>
             <form action="/car/returnCar" method="post">
                 <div class="modal-body return-body">
