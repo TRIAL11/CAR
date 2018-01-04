@@ -34,6 +34,7 @@ public class CarServiceImpl implements CarService{
     {
         carMapper.insertSelective(car);
     }
+
     public void deleteCarByNo(Integer Cno)
     {
         carMapper.deleteByPrimaryKey(Cno);
