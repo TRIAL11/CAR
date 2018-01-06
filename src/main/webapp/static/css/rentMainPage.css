@@ -1,10 +1,8 @@
-
 .rentHead {
     margin-bottom: 30px;
 }
 
 .car-show {
-
     margin-bottom: 50px;
 }
 
@@ -75,5 +73,9 @@
     color: black;
     font-size: 150%;
     font-family: "Microsoft YaHei";
+}
+
+#searchText {
+    width: 220px;
 }
 

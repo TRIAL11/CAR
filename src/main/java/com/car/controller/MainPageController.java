@@ -68,5 +68,11 @@ public class MainPageController {
         modelAndView.setViewName("ManageStaff");
         return modelAndView;
     }
+    @RequestMapping("/text")
+    public ModelAndView text() throws Exception{
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.setViewName("vueText");
+        return modelAndView;
+    }
 
 }

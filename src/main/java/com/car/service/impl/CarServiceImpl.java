@@ -52,6 +52,8 @@ public class CarServiceImpl implements CarService{
         return true;
     }
 
+
+
     @Override
     public PageInfo<Car> pageCar(Integer pageNumber, Integer pageSize, List<Car> list)
     {
@@ -85,7 +87,7 @@ public class CarServiceImpl implements CarService{
         return carMapper.selectByExample(carExample);
     }
 
-
+    //field排序字段method排序方法
     @Override
     public CarExample orderCar(String field, String method,CarExample carExample)
     {
@@ -115,4 +117,33 @@ public class CarServiceImpl implements CarService{
         return pageCar(pageNumber, pageSize, list);
     }
 
+    @Override
+    public boolean priceMin(Float minPrice,Float maxPrice,CarExample.Criteria criteria)
+    {
+        criteria.andCpriceBetween(minPrice,maxPrice);
+        return true;
+    }
+
+    @Override
+    public PageInfo<Car> getPageCarByPrice(Integer pageNum,Integer pageSize,String searchText,Float minPrice,Float maxPrice) {
+        PageHelper.startPage(pageNum,pageSize);
+        CarExample carExample=new CarExample();
+        CarExample.Criteria criteria=carExample.createCriteria();
+        searchCar(searchText,criteria);
+        priceMin(minPrice,maxPrice,criteria);
+        List<Car> list=carMapper.selectByExample(carExample);
+        return pageCar(pageNum,pageSize,list);
+    }
+
+    @Override
+    public PageInfo<Car> getPageCarByPrice(Integer pageNum,Integer pageSize,String sortOrder,String searchText,Float minPrice,Float maxPrice) {
+        PageHelper.startPage(pageNum,pageSize);
+        CarExample carExample=new CarExample();
+        carExample=orderCar("cno",sortOrder,carExample);
+        CarExample.Criteria criteria=carExample.createCriteria();
+        searchCar(searchText,criteria);
+        priceMin(minPrice,maxPrice,criteria);
+        List<Car> list=carMapper.selectByExample(carExample);
+        return pageCar(pageNum,pageSize,list);
+    }
 }

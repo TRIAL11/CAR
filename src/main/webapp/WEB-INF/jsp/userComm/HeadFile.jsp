@@ -11,7 +11,8 @@
 <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script src="https://cdn.bootcss.com/vue/2.5.3/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue-resource/1.3.4/vue-resource.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/LoginOrLoginOut.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/Register.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/UserInfo.js"></script>

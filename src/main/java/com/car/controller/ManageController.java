@@ -219,4 +219,6 @@ public class ManageController {
         map.put("message","right");
         return map;
     }
+
+
 }

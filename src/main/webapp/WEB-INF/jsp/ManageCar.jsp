@@ -14,6 +14,7 @@
     <script src="${pageContext.request.contextPath}/static/js/managecar.js"></script>
 </head>
 <body>
+
 <jsp:include page="staffComm/StaffHeader.jsp"></jsp:include>
 
 <div class="container">
