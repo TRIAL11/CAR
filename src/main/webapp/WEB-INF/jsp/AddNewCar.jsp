@@ -25,7 +25,7 @@
         <h2>车辆信息填写</h2>
     </div>
     <div class="page-body">
-        <form action="${basePath}file/upload" method="post" enctype="multipart/form-data">
+        <form action="/car/upload" method="post" enctype="multipart/form-data">
             <div class="addNewCar-body">
                 <div class="row">
                     <div class="col-md-7">
@@ -83,10 +83,9 @@
 
                     <div class="add-car-picture col-md-5 form-group">
                         <label>图片上传</label>
-                        <input type="file" name="carPicture" id="fileupload" class="uploadfile" >
+                        <input type="file" name="file" id="fileupload" class="uploadfile" >
                         <div class="error-input"></div>
                     </div>
-
                 </div>
 
                 <div class="add-car-button">
